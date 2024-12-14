@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Yaseen's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <a id="download-link" href="https://drive.google.com/uc?export=download&id=17V1NTfRfngIK_oqCj7QzQWZqYz3P1tvv" download="Yaseen_Resume.pdf" style="display: none;"></a>
+    <div class="super" style="display: flex; height: 100vh; width: 100vw;">
+        <div id="sidebar">
+            <h2 id="my-name"onclick="window.open('https://www.instagram.com/solvablehat', '_blank');" style="cursor: pointer;" >Solvable Hat</h2>
+            <ul>
+                <li><a href="#home" id="home-a" onclick="event.preventDefault(); addActive('home-a','home')">Home</a></li>
+                <li><a href="#skills" id="skills-a" onclick="event.preventDefault(); addActive('skills-a','skills')">Skills</a></li>
+                <li><a href="#projects" id="projects-a" onclick="event.preventDefault(); addActive('projects-a','projects')">Projects</a></li>
+                <li><a href="#about" id="about-a" onclick="event.preventDefault(); addActive('about-a','about')">About</a></li>
+                <li><a href="#" id="contact-a" onclick="event.preventDefault(); addActive('contact-a','contact')">Contact</a></li>
+            </ul>
+        </div>
+        <div id="notification" style="display: none; position: fixed; top: 10%; left: 50%; transform: translateX(-50%); background-color: #f0f9ff; color: #333; border: 1px solid #b3e5fc; border-radius: 10px; padding: 15px 20px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif; font-size: 1rem; z-index: 1000; text-align: center;">
+            Download should start shortly...
+        </div>
+        <div id="main">
+            <div id="home">
+                <h1>Hello<lord-icon
+                            src="https://cdn.lordicon.com/zubhquzc.json"
+                            trigger="hover"
+                            stroke="bold"
+                            style="width:60px;height:60px; margin-left: 20px; filter: grayscale(100%);">
+                        </lord-icon>
+                </h1>
+                <div id="hr"></div>
+                <div id="home-content">
+                    <div id="image"><img src="/home/solvablehat/College Material/RESUME/Portfolio/img/Me.jpeg" alt="ME" height="344px" id="me"></div>
+                    <div id="text">
+                        <p id="myname">MOHAMMED<br>YASEEN AGHA</p>
+                        <p id="mysummary">A Web Developer and a Software <br> Engineer based in Karnataka, India.</p>
+                        <div id="links" style="display: flex;">
+                            <img src="/home/solvablehat/College Material/RESUME/Portfolio/img/instagram.png" alt="" onclick="window.open('https://www.instagram.com/solvablehat', '_blank');">
+                            <img src="/home/solvablehat/College Material/RESUME/Portfolio/img/linkedin.png" alt="" onclick="window.open('https://www.linkedin.com/in/mohammed-yaseen-agha-8b6a062a6/', '_blank');">
+                            <img src="/home/solvablehat/College Material/RESUME/Portfolio/img/github.png" alt="" onclick="window.open('https://github.com/notsolvablehat', '_blank');">
+                            <img src="/home/solvablehat/College Material/RESUME/Portfolio/img/gmail.png" alt="" onclick="window.open('mailto:notsolvablehat@gmail.com', '_blank');">
+                        </div>
+                    </div>
+                    <div style="display: flex; padding: 10px; height: 20px; width: 100px; border-radius: 4px; border: 1px solid black; cursor: pointer;" id="resume-div" onclick="getResume()">
+                        <lord-icon id="resume"
+                            src="https://cdn.lordicon.com/fjvfsqea.json"
+                            trigger="in"
+                            state="in-reveal"
+                            style="width:20px;height:20px; filter: grayscale(100%)">
+                        </lord-icon>
+                        <p style="margin: 0px 0px 0px 5px; font-size: 1.4rem;" >Resume</p>
+                    </div>
+                </div>
+
+            </div>
+            <div id="skills" style="padding: 60px; margin-top: 3%;">
+                <h1>Skills<img src="/home/solvablehat/College Material/RESUME/Portfolio/img/creative-thinking.png" alt="Idea" height="60px" style="margin-left: 30px;"></h1>
+                <div id="hr"></div>
+                <div id="skills-content">
+                    <div id="frontend">
+                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Frontend Development</p>
+                        <p style="margin: 0px; grid-area: 2/20/-1/-1; font-size: 1.7rem;">Designing</p>
+                        <div id="a" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/html-5.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">HTML</p></div>
+                        <div id="b" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/css.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">CSS</p></div>
+                        <div id="c" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/js.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">JavaScript</p></div>
+                        <div id="d" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/reactjs.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">React JS</p></div>
+                        <div id="e" ></div>
+                        <div id="f" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/figma.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">Figma</p></div>
+                        <div id="g" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/canva.png" alt="" height="35px"></div>
+                        <div id="h" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/blender.webp" alt="" height="50px"><p style="margin: 0px; font-size: 1.5rem;">Blender</p></div>
+                        <div id="i" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/gimp.jpg" alt="" height="50px"><p style="margin: 0px; font-size: 1.5rem;">GIMP</p></div>
+                    </div>
+                    <div id="programming">
+                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Programming</p>
+                        <div id="j" style="display: flex; justify-content: center; align-items: center;"><img src="img/C.png" alt="" height="45px"></div>
+                        <div id="k" style="display: flex; justify-content: center; align-items: center;"><img src="img/c++.png" alt="" height="45px"></div>
+                        <div id="l" style="display: flex; justify-content: center; align-items: center;"><img src="img/python.png" alt="" height="45px"></div>
+                    </div>
+                    <div id="python">
+                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Python Libraries</p>
+                        <div id="aa" style="display: flex; justify-content: center; align-items: center;"><img src="img/numpy.png" alt="" height="55px"></div>
+                        <div id="bb" style="display: flex; justify-content: center; align-items: center;"><img src="img/pandas.png" alt="" height="50px"></div>
+                        <div id="cc" style="display: flex; justify-content: center; align-items: center;"><img src="img/scikit-learn.png" alt="" height="60px"></div>
+                        <div id="dd" style="display: flex; justify-content: center; align-items: center;"><img src="img/tkinter.png" alt="" height="70px"></div>
+                        <div id="ee" style="display: flex; justify-content: center; align-items: center;"><img src="img/tensorflow.png" alt="" height="70px"></div>
+                    </div>
+                    <div id="version">
+                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Version Control</p>
+                        <div id="ab" style="display: flex; justify-content: space-evenly; align-items: center;"><img src="img/git.png" alt="" height="50px"><p style="margin: 0px; font-size: 1.5rem; margin-left: 0px;">Git</p></div>
+                        <div id="ac" style="display: flex; justify-content: space-evenly; align-items: center;"><img src="img/github.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">GitHub</p></div>
+                    </div>
+                </div>
+            </div>
+            <div id="projects" style="padding: 60px; margin-top: 3%;">
+                <h1>Projects<img src="/home/solvablehat/College Material/RESUME/Portfolio/img/rocket.png" alt="rocket" height="60px" style="margin-left: 30px;"></h1>
+                <div id="hr" style="width: 23%;"></div>
+                <div id="project-content">
+                    <div id="p1">
+                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 60%;" onclick="window.open('https://medx-v04.flutterflow.app/','_blank')"><b>Pill Reminder</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
+                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">Made for <b>Elder Citizens</b> who tend to miss their medications. This is a <b>fullstack</b> application for android built in <b>FlutterFlow</b>. It uses <b>FireBase</b> as a authentication and storage platform. This app also has built-in <b>AI</b> to help with medications. </p></div>
+                    </div>
+                    <div id="p2">
+                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 60%;" onclick="window.open('https://notsolvablehat.github.io/file-explorer/','_blank')"><b>File Explorer</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
+                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">This is a full fledged file explorer built in <b>jQuery</b> and <b>JsTree</b>. It has all the features of a conventional file explorer. Drag-n-Drop, uploading files, Hierarchical representation of files and folders and much more...</p></div>
+                    </div>
+                    <div id="p3">
+                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 100%;" onclick="window.open('https://github.com/notsolvablehat/notepad-clone','_blank')"><b>Notepad (Practice)</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
+                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">This is a <b>simple notepad clone</b>. It was built purely using python's <b>Tkinter library</b>. Though it is not used in current industries, this project gave me a little idea about how layout in softwares work and basic designing.</p></div>                    
+                    </div>
+                    <div id="note" style="padding: 10px; display: flex; justify-content: center; align-items: center;">
+                        <p style="margin: 0px; padding: 10px; font-size: 1.3rem; display: flex; align-items: center; width: 100%;">To be noted that a few more projects are incompelete, hence they are not listed here.</p>
+                    </div>
+                    <div id="pin" style="background-color: transparent; border: none; grid-area: 7/14; display: grid; z-index: 1; top: -60px; left: -10px; position: relative;"><img src="img/pin.png" alt="pinned" height="50px"></div>
+                </div>
+            </div>
+            <div id="about" style="padding: 60px; margin-top: 3%;">
+                <h1>About<lord-icon
+    src="https://cdn.lordicon.com/shcfcebj.json"
+    trigger="hover"
+    colors="primary:#121331,secondary:#b4b4b4"
+    style="width:60px;height:60px;margin-left: 10px;">
+</lord-icon></h1>
+                <div id="hr" style="width: 270px;"></div>
+                <table style="margin-top: 3rem;">
+                    <tr>
+                        <th style="font-size: 2rem; font-weight: 900; text-align: start;" colspan="2"><b>Work Experience</b></th>
+                        <th style="font-size: 2rem; font-weight: 900; text-align: start;" colspan="2"><p style="margin: 0px 0px 0px 11rem;">Education</p></th>
+                    </tr>
+                    <tr>
+                        <td><pre>           </pre></td>
+                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex; justify-content: center; align-items: center;"><img src="img/thunder.png" alt="" height="35px" style="margin-left: 10px;"> OnlineGDB           Jun 2024 - Present</pre>
+                            <div id="online-content">
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Contributor</p>
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Fixed UI Layout in their website</p>
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Currently redesigning their website</p>
+                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 43%;" onclick="window.open('https://onlinegdb.com/credits')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Look at credits page <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
+                            </div>
+                        </td>
+                        <td><pre>                                   </pre></td>
+                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex; justify-content: center; align-items: center;"><img src="img/college-cap.png" alt="" height="35px" style="margin-left: 10px;"> GITAM University              2022 - Present</pre>
+                            <div id="online-content">
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">B.Tech in Computer Science and Engineering</p>
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">8.1 / 10 GPA</p>
+                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 41%;" onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Get more information <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><pre>           </pre></td>
+                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex;  align-items: center;"><img src="img/fiverr.png" alt="" height="30px" style="margin-left: 20px;">  Fiverr                  2023 - 2024</pre>
+                            <div id="online-content">
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Freelancer</p>
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Helped in the making of a minecraft server</p>
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Sadly they abandoned later</p>
+                            </div>
+                        </td>
+                        <!-- ---------------------------------------------------------------- -->
+                        <td><pre>           </pre></td>
+                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex;  align-items: center;"><img src="img/college.png" alt="" height="30px" style="margin-left: 20px;">  Mahesh PU College          2020 - 2022</pre>
+                            <div id="online-content">
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">11<sup>th</sup> and 12<sup>th</sup></p>
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">91.1 % in Final Exams</p>
+                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 41%;" onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Get more information <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <!-- ---------------------------------------------------------------- -->
+                        <td><pre>           </pre></td>
+                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex;  align-items: center;"><img src="img/school-bag.png" alt="" height="30px" style="margin-left: 20px;">  M.S.V Public School         2019 - 2020</pre>
+                            <div id="online-content">
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">10<sup>th</sup> - CBSE Board</p>
+                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">88.4 % in Finals</p>
+                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 41%;" onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Get more information <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+             <!-- background-image: url('img/dots.jpg'); background-repeat: repeat; background-size: 50%; -->
+
+            <div id="contact" style="padding: 60px; margin-top: 3%; position: absolute; left: 50%; transform: translateX(-50%); margin-top: 10rem;">
+                <h1 style="position: absolute; left: 50%; transform: translateX(-50%); top: -10px;">Connect<img src="/home/solvablehat/College Material/RESUME/Portfolio/img/negotiation.png" alt="rocket" height="70px" style="margin-left: 20px;"></h1>
+                <div id="hr" style="width: 330px; position: absolute; left: 50%; transform: translateX(-50%);"></div>
+                <div id="contact-content" style="display: grid; grid-template-columns: repeat(20, 60px); grid-template-rows: repeat(10, 60px); margin-top: 50px;">
+                    <div id="mac" style="grid-area: 3/5/9/17; background-color: #3E3E3E; border-radius: 15px;">
+                        <div id="header" style="background-color: #4D4D4F; height: 50px; width: 100%; border-radius: 15px 15px 0px 0px; display: flex; justify-content: space-between; align-items: center;">
+                            <div id="left-div" style="display: flex; margin: 25px; justify-content: space-evenly; width: 70px;">
+                                <div style="height: 15px; width: 15px; border-radius: 15px; background-color: red;"></div>
+                                <div style="height: 15px; width: 15px; border-radius: 15px; background-color: yellow;"></div>
+                                <div style="height: 15px; width: 15px; border-radius: 15px; background-color: rgb(123, 255, 47);"></div>
+                            </div>
+                            <div id="right-div" style="display: flex; margin: 35px; justify-content: space-evenly; width: 30px;">
+                                <div style="height: 5px; width: 5px; border-radius: 5px; background-color: rgb(194, 194, 194);"></div>
+                                <div style="height: 5px; width: 5px; border-radius: 5px; background-color: rgb(194, 194, 194);"></div>
+                                <div style="height: 5px; width: 5px; border-radius: 5px; background-color: rgb(194, 194, 194);"></div>
+                            </div>
+                        </div>
+                        <div id="form-content" style="padding: 20px 40px 40px 40px;">
+                            <form style=" display: flex; justify-content: space-between;" onsubmit="sendMail(event)" autocomplete="off">
+                                <div>
+                                    <p style="font-size: 3rem; color: white; margin: 90px 0px 5px 0px;">Let's Talk</p>
+                                    <div style="height: 2px; width: 100px; background-color: white;"></div>
+                                    <p style="margin: 0px; margin-top:60px; color: white; user-select: text;">notsolvablehat@gmail.com</p>
+                                </div>
+                                <div id="input-div">
+                                    <input class="input" type="text" id="name" placeholder="Name"><br>
+                                    <input class="input" type="text" id="company" placeholder="Company"><br>
+                                    <input class="input" type="text" id="message" placeholder="Optional Message"><br>
+                                    <input type="submit" value="Send" id="submit-btn">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+
+</html>

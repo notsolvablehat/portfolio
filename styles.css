@@ -1,0 +1,430 @@
+ @import url('https://fonts.googleapis.com/css2?family=Jomhuria&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Jomhuria&family=Julius+Sans+One&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Jomhuria&family=Julius+Sans+One&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+ .jomhuria-regular {
+    font-family: "Jomhuria", serif;
+    font-weight: 200;
+    font-style: normal;
+}
+.julius-sans-one-regular {
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.hubballi-regular {
+    font-family: "Hubballi", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+body{
+    margin: 0px;
+    background-color: #EDEDED;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+}
+
+.super{
+    display: flex;
+}
+
+#sidebar{
+    display: flex;
+    position: fixed;
+    user-select: none;
+    flex-direction: column;   
+    height: 100%;
+    width: 300px;
+    background-color: #F3F3F3;
+    box-shadow: 3px 3px 3px rgb(215, 215, 215);
+    justify-content: center;
+}
+#my-name{
+    font-family: "Calibri";
+    font-size: 2.5rem;
+    margin: 50px 10px 50px 30px;
+}
+
+#sidebar ul{
+    list-style-type: none;
+    user-select: none;
+}
+#sidebar ul li{
+    padding: 10px;
+    user-select: none;
+}
+#sidebar ul li a {
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    color: black;
+    font-family: "Julius Sans One";
+    font-size: 1.45rem;
+    user-select: none;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+#sidebar ul li a.active {
+    color: #555;
+}
+
+#sidebar ul li a.active::before {
+    position: absolute;
+    content: "";
+    height: 30px;
+    width: 2px;
+    background-color: rgb(137, 137, 137);
+    top: 50%;
+    left: -15px;
+    transform: translateY(-50%);
+}
+#main{
+    flex-grow: 1;
+    position: relative;
+    margin-left: 310px;
+    font-family: "Hubballi";
+    overflow-x: hidden;
+}
+#home{
+    margin: 0px;
+    padding: 60px;
+    font-family: "Hubballi";
+    overflow: hidden;
+}
+h1{
+    font-size: 4rem;
+    display: flex;
+    margin: 0px;
+}
+#image img{
+    margin-left: 30px;
+    filter: grayscale(100%);
+    user-select: none;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+#me:hover{
+    filter: grayscale(10%);
+    border: 2px solid #EDEDED;
+}
+#hr{
+    height: 3px;
+    width: 18rem;
+    margin: 10px;
+    background-color: #D9D9D9;
+    margin: 15px 0px 0px 0px;
+    left: -20px;
+    position: relative;
+}
+#home-content{
+    display: flex;
+    padding: 13rem 10rem 13rem 20rem;
+}
+#text{
+    margin-left: 40px;
+    align-content: start;
+}
+#text p{
+    left: 0px;
+    position: relative;
+}
+#myname{
+    font-size: 3rem;
+    font-weight:bolder;
+}
+#mysummary{
+    font-size: 1.5rem;
+}
+#links img{
+    filter: grayscale(100%);
+    user-select: none;
+    height: 36px;
+    cursor: pointer;
+}
+#links img:hover{
+    transform: scale(1.05);
+    filter: grayscale(10%);
+}
+#links{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+#skills-content{
+    display: grid;
+    grid-template-rows: repeat(9, 80px);
+    grid-template-columns: repeat(11, 100px);
+    margin-top: 5%;
+    margin-left: 10%;
+}
+#frontend{
+    grid-area: 1 / 1 / 5 / 8;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+    display: grid;
+    grid-template-rows: repeat(23, 15px);
+    grid-template-columns: repeat(35, 20px);
+    box-shadow: 1px 3px 5px rgb(196, 196, 196);
+    height: 350px;
+}
+#frontend div:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#a{
+    grid-area: 5/3/11/10;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+    padding: 10px;
+    transition: all 100ms ease;
+}
+
+#b{
+    grid-area: 5/11/11/17;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#c{
+    grid-area: 12/4/17/16;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#d{
+    grid-area: 18/4/-2/16;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#e{
+    grid-area: 2/18/23/19;
+    width: 2px;
+    border: none;
+    background-color: white;
+    margin-left: 15px;
+}
+#f{
+    grid-area: 5/20/11/27;
+    background-color: white;
+        border-radius: 10px;
+        border: 1px solid black;
+}
+#g{
+    grid-area: 5/28/11/35;
+    background-color: white;
+        border-radius: 10px;
+        border: 1px solid black;
+}
+#h{
+    grid-area: 12/22/17/33;
+    background-color: white;
+        border-radius: 10px;
+        border: 1px solid black;
+}
+#i{
+    grid-area: -7/22/-2/33;
+    background-color: white;
+        border-radius: 10px;
+        border: 1px solid black;
+}
+#programming{
+    grid-area: 3 / 8 / 6 / 12;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+    margin-left: 40px;
+    width: 400px;
+    display: grid;
+    grid-template-rows: repeat(15,15px);
+    grid-template-columns: repeat(25,15px);
+    height: 200px;
+    box-shadow: 1px 3px 5px rgb(196, 196, 196);
+}
+#programming div{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#programming div:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#j {
+    grid-area: 6/3/11/10;
+}
+#k{
+    grid-area: 6/11/11/17;
+}
+#l{
+    grid-area: 6/18/11/-2;
+}
+#python{
+    grid-area: 6/2/9/7;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+    display: grid;
+    grid-template-columns: repeat(33,15px);
+    grid-template-rows: repeat(18,15px);
+    box-shadow: 1px 3px 5px rgb(196, 196, 196);
+    height: 270px;
+}
+#python div{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#python div:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#aa{
+    grid-area: 5/2/11/13;
+}
+#bb{
+    grid-area:5/14/11/24 ;
+}
+#cc{
+    grid-area: 7/25/15/33;
+}
+#dd{
+    grid-area: 12/2/18/12;
+}
+#ee{
+    grid-area: 12/13/18/24;
+}
+#version{
+    grid-area: 7/8/-2/-2;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #D9D9D9;
+    display: grid;
+    grid-template-columns: repeat(20,15px);
+    grid-template-rows: repeat(10,15px);
+    box-shadow: 1px 3px 5px rgb(196, 196, 196);
+    width: 350px;
+}
+#version div{
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+#version div:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#ab{
+    grid-area: 5/3/10/11 ;
+}
+#ac{
+    grid-area: 5/12/-2/-1;
+}
+#project-content{
+    display: grid;
+    grid-template-rows: repeat(9, 80px);
+    grid-template-columns: repeat(14, 80px);
+    margin-top: 5%;
+    margin-left: 10%;
+}
+#project-content div{
+    background-color: #D9D9D9;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+#p1{
+    grid-area: 2/1/5/5;
+    padding: 20px;
+    height: 250px;
+}
+#p2{
+    grid-area: 5/6/8/10;
+    padding: 20px;
+    height: 250px;
+}
+#p3{
+    grid-area: 2/11/5/15;
+    padding: 20px;
+    height: 250px;
+}
+#note{
+    grid-area: 7/12/9/15;
+    height: 130px;
+    transform: rotate(-30deg);
+    width: 200px;
+}
+#input-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 250px;
+    position: relative;
+}
+#input-div .input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 10px;
+    width: 250px;
+    margin: 10px;
+    color: white;
+    border-radius: 1px;
+    cursor: text;
+}
+#input-div .input::placeholder{
+    font-family: "Hubballi";
+    color: white;
+}
+#input-div .input:focus{
+    outline: none;
+}
+#input-div #submit-btn{
+    width: 50px;
+    margin-left: 230px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #555;
+    border: none;
+    border-radius: 4px;
+    padding: 3px;
+    color: white;
+}
+#input-div #submit-btn:active{
+    background-color: #666666;
+}
+#hi{
+    height: 60px;
+    width: 60px;
+    background-image: url('gifs/hi.svg');
+    background-size: cover;
+    margin-left: 20px;
+    filter: grayscale(100%);
+}
+#hi:hover{
+    background-image: url('gifs/hi.gif');
+    filter: grayscale(100%);
+}
+#notification {
+    animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+
+    0%,
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
