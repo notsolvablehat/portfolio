@@ -81,13 +81,23 @@ elements.forEach(el => {
 });
 
 function getResume(){
-    const notification = document.getElementById('notification');
-    notification.style.display = 'block';
+    if (window.navigator.onLine)    {
+        const notification = document.getElementById('notification');
+        notification.style.display = 'block';
 
-    const downloadLink = document.getElementById('download-link');
-    downloadLink.click();
+        const downloadLink = document.getElementById('download-link');
+        downloadLink.click();
 
-    setTimeout(() => {
-        notification.style.display = 'none';
-    }, 3000);
+        setTimeout(() => {
+            notification.style.display = 'none';
+        }, 3000);
+    }else{
+        const notificationN = document.getElementById('notificationN');
+        notificationN.style.display = 'block';
+
+        setTimeout(() => {
+            notificationN.style.display = 'none';
+        }, 3000);
+    }
+    
 }
