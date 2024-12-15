@@ -441,10 +441,24 @@ h1{
     left: -10px;
     position: relative;
 }
+#about{
+    padding: 60px;
+    margin-top: 3%;
+}
+#contact-content{
+    display: grid;
+    grid-template-columns: repeat(20, 60px);
+    grid-template-rows: repeat(10, 60px);
+    margin-top: 50px;
+}
 #mac{
     grid-area: 3/5/9/17;
     background-color: #3E3E3E;
     border-radius: 15px;
+}
+#projects{
+    padding: 60px;
+    margin-top: 3%;
 }
 @keyframes fadeOut {
 
@@ -458,11 +472,10 @@ h1{
         display: none;
     }
 }
-@media (max-width: 700px) {
+@media (max-width: 400px) {
     #sidebar {
         display: none;
     }
-
     #sidebar-mobile {
         display: flex !important;
         height: 100px;
@@ -472,18 +485,18 @@ h1{
         justify-content: center;
     }
     #my-name{
-        font-size: 2rem;
+        font-size: 1rem;
     }
     #sidebar-mobile ul{
         display: flex;
         list-style-type: none;
         padding: 0px;
         font-family: "Hubballi";
-        font-size: 1.3rem;
+        font-size: 1rem;
         justify-content: space-between;
     }
     #sidebar-mobile ul li{
-        padding: 10px;
+        padding: 4px;
         list-style-type: none;
     }
     #sidebar-mobile ul li a{
@@ -497,8 +510,11 @@ h1{
         margin-left: 0px;
         top: 100px;
     }
+    #home{
+        padding: 20px;
+    }
     #home-content{
-        padding: 10rem 10rem 10rem 5rem;
+        padding: 10rem 1rem 10rem 0rem;
         display: flex;
         flex-direction: column;
     }
@@ -507,7 +523,7 @@ h1{
     }
     #skills-content {
         display: grid;
-        grid-template-rows: repeat(20, 80px);
+        grid-template-rows: repeat(10, 80px);
         grid-template-columns: repeat(6, 100px);
         margin-top: 5%;
         margin-left: 10%;
@@ -553,40 +569,61 @@ h1{
     #i{
         grid-area: -7/17/-2/25;
     }
-    #fronent-design{
-        grid-area: 2/16/-1/-1;
-        top: -10px;
-        left: 10px;
+    #frontend{
+        transform: scale(0.7);
+        left: -150px;
         position: relative;
     }
     #programming{
-        grid-area: 6/1/9/6;
+        grid-area: 5/1/9/6;
+        transform: scale(0.7);
+        position: relative;
+        left: -130px;
     }
     #python{
-        grid-area: 9/1/12/6;
+        grid-area: 7/1/12/6;
+        position: relative;
+        left: -140px;
+        transform: scale(0.7);
     }
     #version{
-        grid-area: 13/2/15/-2;
+        grid-area: 10/2/12/-1;
+        position: relative;
+        left: -180px;
+        transform: scale(0.7);
     }
     #project-content{
-        grid-template-rows: repeat(16, 80px);
-        grid-template-columns: repeat(6, 80px);
+        grid-template-rows: repeat(26, 50px);
+        grid-template-columns: repeat(6, 50px);
+        margin-left: 0px;
+    }
+    #p1{
+        grid-area: 2/1/6/7;
+        height: 300px;
     }
     #p4{
-        grid-area: 6/2/10/6;
+        grid-area: 10/1/10/8;
+        position: relative;
+        top: -22px;
     }
     #p2{
-        grid-area: 10/1/10/5;
+        grid-area: 15/1/20/7;
     }
     #p3{
-        grid-area: 14/2/14/11;
-        height: 200px;
+        grid-area: 21/1/24/11;
+        height: 250px;
     }
     #note{
         display: none;
     }
     #pin{
         display: none;
+    }
+    #about{
+        padding-left: 0px;
+        transform: scale(0.7);
+        left: -50px;
+        position: relative;
     }
         table {
       display: block;
@@ -610,10 +647,16 @@ h1{
     th[colspan="2"], td[colspan="2"] {
       text-align: center;
     }
+    #contact-content{
+        transform: scale(0.6);
+    }
     #education{
         display: none;
     }
     #mac{
         grid-area: 3/6/9/16;
+    }
+    #projects{
+        padding: 60px 60px 60px 30px;
     }
 }
