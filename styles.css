@@ -420,7 +420,32 @@ h1{
 #notification {
     animation: fadeOut 3s forwards;
 }
-
+#fronent-design{
+    margin: 0px;
+    grid-area: 2/20/-1/-1;
+    font-size: 1.7rem;
+}
+#note{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#pin{
+    background-color: transparent;
+    border: none;
+    grid-area: 7/14;
+    display: grid;
+    z-index: 1;
+    top: -60px;
+    left: -10px;
+    position: relative;
+}
+#mac{
+    grid-area: 3/5/9/17;
+    background-color: #3E3E3E;
+    border-radius: 15px;
+}
 @keyframes fadeOut {
 
     0%,
@@ -431,5 +456,164 @@ h1{
     100% {
         opacity: 0;
         display: none;
+    }
+}
+@media (max-width: 700px) {
+    #sidebar {
+        display: none;
+    }
+
+    #sidebar-mobile {
+        display: flex !important;
+        height: 100px;
+        width: 100%;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+    }
+    #my-name{
+        font-size: 2rem;
+    }
+    #sidebar-mobile ul{
+        display: flex;
+        list-style-type: none;
+        padding: 0px;
+        font-family: "Hubballi";
+        font-size: 1.3rem;
+        justify-content: space-between;
+    }
+    #sidebar-mobile ul li{
+        padding: 10px;
+        list-style-type: none;
+    }
+    #sidebar-mobile ul li a{
+        text-decoration: none;
+        color: #666666;
+    }
+    #sidebar-mobile ul li a.active{
+        text-decoration: none;
+    }
+    #main{
+        margin-left: 0px;
+        top: 100px;
+    }
+    #home-content{
+        padding: 10rem 10rem 10rem 5rem;
+        display: flex;
+        flex-direction: column;
+    }
+    #links{
+        margin-bottom: 40px;
+    }
+    #skills-content {
+        display: grid;
+        grid-template-rows: repeat(20, 80px);
+        grid-template-columns: repeat(6, 100px);
+        margin-top: 5%;
+        margin-left: 10%;
+    }
+    #frontend{
+        grid-area: 1/1/5/6;
+        grid-template-rows: repeat(23, 15px);
+        grid-template-columns: repeat(25, 20px);
+    }
+    #a{
+        grid-area:5/2/11/8 ;
+    }
+    #b{
+        grid-area:5/9/11/15 ;
+    }
+    #c{
+        grid-area: 12/3/17/14;
+    }
+    #d{
+        grid-area: 18/3/-2/14;
+    }
+    #e{
+        grid-area: 2/15/23/16;
+    }
+    #f{
+        grid-area: 4/17/7/22;
+    }
+    #f img{
+        height: 20px;
+    }
+    #f p{
+        font-size: 1rem;
+    }
+    #g{
+        grid-area: 8/19/11/25;
+    }
+    #g img{
+        height: 20px;
+    }
+    #h{
+        grid-area: 12/17/17/25;
+    }
+    #i{
+        grid-area: -7/17/-2/25;
+    }
+    #fronent-design{
+        grid-area: 2/16/-1/-1;
+        top: -10px;
+        left: 10px;
+        position: relative;
+    }
+    #programming{
+        grid-area: 6/1/9/6;
+    }
+    #python{
+        grid-area: 9/1/12/6;
+    }
+    #version{
+        grid-area: 13/2/15/-2;
+    }
+    #project-content{
+        grid-template-rows: repeat(16, 80px);
+        grid-template-columns: repeat(6, 80px);
+    }
+    #p4{
+        grid-area: 6/2/10/6;
+    }
+    #p2{
+        grid-area: 10/1/10/5;
+    }
+    #p3{
+        grid-area: 14/2/14/11;
+        height: 200px;
+    }
+    #note{
+        display: none;
+    }
+    #pin{
+        display: none;
+    }
+        table {
+      display: block;
+    }
+
+    tr {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+    }
+
+    td {
+      display: block;
+      width: 100%;
+    }
+
+    th{
+        display: none;
+    }
+
+    th[colspan="2"], td[colspan="2"] {
+      text-align: center;
+    }
+    #education{
+        display: none;
+    }
+    #mac{
+        grid-area: 3/6/9/16;
     }
 }

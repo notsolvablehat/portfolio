@@ -3,12 +3,23 @@
 <head>
     <title>Yaseen's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
     <a id="download-link" href="https://drive.google.com/uc?export=download&id=17V1NTfRfngIK_oqCj7QzQWZqYz3P1tvv" download="Yaseen_Resume.pdf" style="display: none;"></a>
     <div class="super" style="display: flex; height: 100vh; width: 100vw;">
         <div id="sidebar">
+            <h2 id="my-name"onclick="window.open('https://www.instagram.com/solvablehat', '_blank');" style="cursor: pointer;" >Solvable Hat</h2>
+            <ul>
+                <li><a href="#home" id="home-a" onclick="event.preventDefault(); addActive('home-a','home')">Home</a></li>
+                <li><a href="#skills" id="skills-a" onclick="event.preventDefault(); addActive('skills-a','skills')">Skills</a></li>
+                <li><a href="#projects" id="projects-a" onclick="event.preventDefault(); addActive('projects-a','projects')">Projects</a></li>
+                <li><a href="#about" id="about-a" onclick="event.preventDefault(); addActive('about-a','about')">About</a></li>
+                <li><a href="#" id="contact-a" onclick="event.preventDefault(); addActive('contact-a','contact')">Contact</a></li>
+            </ul>
+        </div>
+        <div id="sidebar-mobile" style="display: none;">
             <h2 id="my-name"onclick="window.open('https://www.instagram.com/solvablehat', '_blank');" style="cursor: pointer;" >Solvable Hat</h2>
             <ul>
                 <li><a href="#home" id="home-a" onclick="event.preventDefault(); addActive('home-a','home')">Home</a></li>
@@ -64,7 +75,7 @@
                 <div id="skills-content">
                     <div id="frontend">
                         <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Frontend Development</p>
-                        <p style="margin: 0px; grid-area: 2/20/-1/-1; font-size: 1.7rem;">Designing</p>
+                        <p id="fronent-design">Designing</p>
                         <div id="a" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/html-5.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">HTML</p></div>
                         <div id="b" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/css.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">CSS</p></div>
                         <div id="c" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/js.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">JavaScript</p></div>
@@ -116,10 +127,10 @@
                         <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 100%;" onclick="window.open('https://github.com/notsolvablehat/spam_classification','_blank')"><b>Email Spam Classifier</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
                         <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">This Classifier was made to compelete an internship. It works by utilizing <b>streamlit</b> for frontend and uses <b>MultinomialNB (scikit-learn)</b> for classifying incoming emails.</p></div>                    
                     </div>
-                    <div id="note" style="padding: 10px; display: flex; justify-content: center; align-items: center;">
+                    <div id="note">
                         <p style="margin: 0px; padding: 10px; font-size: 1.3rem; display: flex; align-items: center; width: 100%;">To be noted that a few more projects are incompelete, hence they are not listed here.</p>
                     </div>
-                    <div id="pin" style="background-color: transparent; border: none; grid-area: 7/14; display: grid; z-index: 1; top: -60px; left: -10px; position: relative;"><img src="img/pin.png" alt="pinned" height="50px"></div>
+                    <div id="pin"><img src="img/pin.png" alt="pinned" height="50px"></div>
                 </div>
             </div>
             <div id="about" style="padding: 60px; margin-top: 3%;">
@@ -133,7 +144,7 @@
                 <table style="margin-top: 3rem;">
                     <tr>
                         <th style="font-size: 2rem; font-weight: 900; text-align: start;" colspan="2"><b>Work Experience</b></th>
-                        <th style="font-size: 2rem; font-weight: 900; text-align: start;" colspan="2"><p style="margin: 0px 0px 0px 11rem;">Education</p></th>
+                        <th style="font-size: 2rem; font-weight: 900; text-align: start;" colspan="2"><p style="margin: 0px 0px 0px 11rem;" id="education">Education</p></th>
                     </tr>
                     <tr>
                         <td><pre>           </pre></td>
@@ -195,7 +206,7 @@
                 <h1 style="position: absolute; left: 50%; transform: translateX(-50%); top: -10px;">Connect<img src="img/negotiation.png" alt="rocket" height="70px" style="margin-left: 20px;"></h1>
                 <div id="hr" style="width: 330px; position: absolute; left: 50%; transform: translateX(-50%);"></div>
                 <div id="contact-content" style="display: grid; grid-template-columns: repeat(20, 60px); grid-template-rows: repeat(10, 60px); margin-top: 50px;">
-                    <div id="mac" style="grid-area: 3/5/9/17; background-color: #3E3E3E; border-radius: 15px;">
+                    <div id="mac">
                         <div id="header" style="background-color: #4D4D4F; height: 50px; width: 100%; border-radius: 15px 15px 0px 0px; display: flex; justify-content: space-between; align-items: center;">
                             <div id="left-div" style="display: flex; margin: 25px; justify-content: space-evenly; width: 70px;">
                                 <div style="height: 15px; width: 15px; border-radius: 15px; background-color: red;"></div>
