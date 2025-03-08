@@ -42,6 +42,7 @@ body{
     background-color: #F3F3F3;
     box-shadow: 3px 3px 3px rgb(215, 215, 215);
     justify-content: center;
+    z-index: 1000;
 }
 #my-name{
     font-family: "Calibri";
@@ -89,13 +90,13 @@ body{
     position: relative;
     margin-left: 310px;
     font-family: "Hubballi";
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 #home{
     margin: 0px;
     padding: 60px;
     font-family: "Hubballi";
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 h1{
     font-size: 4rem;
