@@ -331,7 +331,7 @@ h1{
 }
 #project-content{
     display: grid;
-    grid-template-rows: repeat(9, 80px);
+    grid-template-rows: repeat(11, 80px);
     grid-template-columns: repeat(14, 80px);
     margin-top: 5%;
     margin-left: 10%;
@@ -358,6 +358,11 @@ h1{
 }
 #p4{
     grid-area: 7/1/10/5;
+    padding: 20px;
+    height: 200px;
+}
+#p5{
+    grid-area: 9/7/12/11;
     padding: 20px;
     height: 200px;
 }
