@@ -1,31 +1,46 @@
-function addActive(linkId,scrollTo) {
-    document.querySelectorAll("#sidebar ul li a").forEach((link) => {
-        link.classList.remove("active");
-    });
-
-    const link = document.getElementById(linkId);
-    if (link) {
-        link.classList.add("active");
-    }
-
-    const targetElement = document.querySelector(`#${scrollTo}`);
-    targetElement.scrollIntoView({
-        behavior: 'smooth'
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll("#sidebar ul li a").forEach((link) => {
-        link.addEventListener("click", function () {
-            document.querySelectorAll("#sidebar ul li a").forEach((l) => {
-                l.classList.remove("active");
-            });
+    // Smooth scrolling for sidebar links
+    document.querySelectorAll('#sidebar a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
 
-            this.classList.add("active");
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
+    // Intersection Observer for active link highlighting
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('#sidebar a');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${entry.target.id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        rootMargin: '-50% 0px -50% 0px', // Trigger in the middle of the viewport
+        threshold: 0
+    });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
 });
+
 function sendMail(event) {
     event.preventDefault();
 
@@ -42,62 +57,20 @@ function sendMail(event) {
     window.location.href = mailtoLink;
 }
 
-const resumeDiv = document.getElementById('resume-div');
-const resumeIcon = document.getElementById('resume');
+function getResume() {
+    const notification = document.getElementById('notification');
+    const notificationN = document.getElementById('notificationN');
 
-resumeDiv.addEventListener('mouseenter', () => {
-    resumeIcon.setAttribute('trigger', 'in');
-});
-
-const elements = [
-    { id: 'myname', navId: 'home-a' },
-    { id: 'aa', navId: 'skills-a' },
-    { id: 'p2', navId: 'projects-a' },
-    { id: 'online-content', navId: 'about-a' },
-    { id: 'header', navId: 'contact-a' }
-];
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        // Get the nav element corresponding to the observed element
-        const navElement = elements.find(el => el.id === entry.target.id)?.navId;
-
-        if (entry.isIntersecting && navElement) {
-            // Add 'active' to the current section's nav link
-            document.getElementById(navElement).classList.add("active");
-        } else if (navElement) {
-            // Remove 'active' if the section is not in view
-            document.getElementById(navElement).classList.remove("active");
-        }
-    });
-}, {
-    threshold: 1
-});
-
-// Observe all elements
-elements.forEach(el => {
-    const element = document.getElementById(el.id);
-    if (element) observer.observe(element);
-});
-
-function getResume(){
-    if (window.navigator.onLine)    {
-        const notification = document.getElementById('notification');
+    if (window.navigator.onLine) {
         notification.style.display = 'block';
-
-        const downloadLink = document.getElementById('download-link');
-        downloadLink.click();
-
+        document.getElementById('download-link').click();
         setTimeout(() => {
             notification.style.display = 'none';
         }, 3000);
-    }else{
-        const notificationN = document.getElementById('notificationN');
+    } else {
         notificationN.style.display = 'block';
-
         setTimeout(() => {
             notificationN.style.display = 'none';
         }, 3000);
     }
-    
 }

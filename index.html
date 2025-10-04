@@ -1,250 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yaseen's Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/boy.png" type="image/png">
 </head>
-
 <body>
-    <a id="download-link" href="https://drive.google.com/uc?export=download&id=17V1NTfRfngIK_oqCj7QzQWZqYz3P1tvv" download="Yaseen_Resume.pdf" style="display: none;"></a>
-    <div class="super" style="display: flex; height: 100vh; width: 100vw;">
-        <div id="sidebar">
-            <h2 id="my-name"onclick="window.open('https://www.instagram.com/solvablehat', '_blank');" style="cursor: pointer;" >Solvable Hat</h2>
+    <a id="download-link" href="https://drive.google.com/uc?export=download&id=17V1NTfRfngIK_oqCj7QzQWZqYz3P1tvv" download="Yaseen_Resume.pdf"></a>
+
+    <div class="super-container">
+        <nav id="sidebar">
+            <h2 id="my-name" onclick="window.open('https://www.instagram.com/solvablehat', '_blank');">Solvable Hat</h2>
             <ul>
-                <li><a href="#home" id="home-a" onclick="event.preventDefault(); addActive('home-a','home')">Home</a></li>
-                <li><a href="#skills" id="skills-a" onclick="event.preventDefault(); addActive('skills-a','skills')">Skills</a></li>
-                <li><a href="#projects" id="projects-a" onclick="event.preventDefault(); addActive('projects-a','projects')">Projects</a></li>
-                <li><a href="#about" id="about-a" onclick="event.preventDefault(); addActive('about-a','about')">About</a></li>
-                <li><a href="#" id="contact-a" onclick="event.preventDefault(); addActive('contact-a','contact')">Contact</a></li>
+                <li><a href="#home" id="home-a">Home</a></li>
+                <li><a href="#skills" id="skills-a">Skills</a></li>
+                <li><a href="#projects" id="projects-a">Projects</a></li>
+                <li><a href="#about" id="about-a">About</a></li>
+                <li><a href="#contact" id="contact-a">Contact</a></li>
             </ul>
-        </div>
-        <div id="sidebar-mobile" style="display: none;">
-            <h2 id="my-name"onclick="window.open('https://www.instagram.com/solvablehat', '_blank');" style="cursor: pointer;" >Solvable Hat</h2>
-            <ul>
-                <li><a href="#home" id="home-a" onclick="event.preventDefault(); addActive('home-a','home')">Home</a></li>
-                <li><a href="#skills" id="skills-a" onclick="event.preventDefault(); addActive('skills-a','skills')">Skills</a></li>
-                <li><a href="#projects" id="projects-a" onclick="event.preventDefault(); addActive('projects-a','projects')">Projects</a></li>
-                <li><a href="#about" id="about-a" onclick="event.preventDefault(); addActive('about-a','about')">About</a></li>
-                <li><a href="#" id="contact-a" onclick="event.preventDefault(); addActive('contact-a','contact')">Contact</a></li>
-            </ul>
-        </div>
-        <div id="notification" style="display: none; position: fixed; top: 10%; left: 50%; transform: translateX(-50%); background-color: #f0f9ff; color: #333; border: 1px solid #b3e5fc; border-radius: 10px; padding: 15px 20px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif; font-size: 1rem; z-index: 1000; text-align: center;">
-            Download should begin shortly...
-        </div>
-        <div id="notificationN" style="display: none; position: fixed; top: 10%; left: 50%; transform: translateX(-50%); background-color: #ffd9d9; color: #909090; border: 1px solid #fcb3b3; border-radius: 10px; padding: 15px 20px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif; font-size: 1rem; z-index: 1000; text-align: center;">
-            Please connect to internet and retry...
-        </div>
-        <div id="main">
-            <div id="home">
-                <h1>Hello<lord-icon
-                            src="https://cdn.lordicon.com/zubhquzc.json"
-                            trigger="hover"
-                            stroke="bold"
-                            style="width:60px;height:60px; margin-left: 20px; filter: grayscale(100%);">
-                        </lord-icon>
-                </h1>
-                <div id="hr"></div>
-                <div id="home-content">
-                    <div id="image"><img src="img/Me.jpeg" alt="ME" height="344px" id="me"></div>
-                    <div id="text">
+        </nav>
+
+        <div id="notification">Download should begin shortly...</div>
+        <div id="notificationN">Please connect to internet and retry...</div>
+
+        <main id="main">
+            <section id="home">
+                <div class="home-content">
+                    <div class="text">
+                        <h1>Hello
+                            <lord-icon src="https://cdn.lordicon.com/zubhquzc.json" trigger="hover" stroke="bold"></lord-icon>
+                        </h1>
+                        <div class="hr"></div>
                         <p id="myname">MOHAMMED<br>YASEEN AGHA</p>
-                        <p id="mysummary">A Web Developer and a Software <br> Engineer based in Karnataka, India.</p>
-                        <div id="links" style="display: flex;">
-                            <img src="img/instagram.png" alt="" onclick="window.open('https://www.instagram.com/solvablehat', '_blank');">
-                            <img src="img/linkedin.png" alt="" onclick="window.open('https://www.linkedin.com/in/mohammed-yaseen-agha-8b6a062a6/', '_blank');">
-                            <img src="img/github.png" alt="" onclick="window.open('https://github.com/notsolvablehat', '_blank');">
-                            <img src="img/gmail.png" alt="" onclick="window.open('mailto:notsolvablehat@gmail.com', '_blank');">
+                        <p id="mysummary">A Web Developer and a Software<br> Engineer based in Karnataka, India.</p>
+                        <div class="links">
+                            <img src="img/instagram.png" alt="Instagram" onclick="window.open('https://www.instagram.com/solvablehat', '_blank');">
+                            <img src="img/linkedin.png" alt="LinkedIn" onclick="window.open('https://www.linkedin.com/in/mohammed-yaseen-agha-8b6a062a6/', '_blank');">
+                            <img src="img/github.png" alt="GitHub" onclick="window.open('https://github.com/notsolvablehat', '_blank');">
+                            <img src="img/gmail.png" alt="Gmail" onclick="window.open('mailto:notsolvablehat@gmail.com', '_blank');">
+                        </div>
+                        <div class="resume-div" onclick="getResume()">
+                            <lord-icon id="resume" src="https://cdn.lordicon.com/fjvfsqea.json" trigger="in" state="in-reveal"></lord-icon>
+                            <p>Resume</p>
                         </div>
                     </div>
-                    <div style="display: flex; padding: 10px; height: 20px; width: 100px; border-radius: 4px; border: 1px solid black; cursor: pointer; align-items: center;" id="resume-div" onclick="getResume()">
-                        <lord-icon id="resume"
-                            src="https://cdn.lordicon.com/fjvfsqea.json"
-                            trigger="in"
-                            state="in-reveal"
-                            style="width:25px;height:25px; filter: grayscale(100%)">
-                        </lord-icon>
-                        <p style="margin: 0px 0px 0px 5px; font-size: 1.2rem;" >Resume</p>
+                    <div class="image">
+                        <img src="img/Me.jpeg" alt="ME" id="me">
                     </div>
                 </div>
+            </section>
 
-            </div>
-            <div id="skills" style="padding: 60px; margin-top: 3%;">
-                <h1>Skills<img src="gifs/Accreditation.gif" alt="Idea" height="60px" style="margin-left: 30px;"></h1>
-                <div id="hr"></div>
-                <div id="skills-content">
-                    <div id="frontend">
-                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Frontend Development</p>
-                        <p id="fronent-design">Designing</p>
-                        <div id="a" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/html-5.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">HTML</p></div>
-                        <div id="b" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/css.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">CSS</p></div>
-                        <div id="c" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/js.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">JavaScript</p></div>
-                        <div id="d" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/reactjs.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">React JS</p></div>
-                        <div id="e" ></div>
-                        <div id="f" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/figma.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">Figma</p></div>
-                        <div id="g" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/canva.png" alt="" height="35px"></div>
-                        <div id="h" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/blender.webp" alt="" height="50px"><p style="margin: 0px; font-size: 1.5rem;">Blender</p></div>
-                        <div id="i" style="display: flex; align-items: center; justify-content: space-evenly;"><img src="img/gimp.jpg" alt="" height="50px"><p style="margin: 0px; font-size: 1.5rem;">GIMP</p></div>
+            <section id="skills">
+                <h1>Skills<img src="gifs/Accreditation.gif" alt="Accreditation" height="60px"></h1>
+                <div class="hr"></div>
+                <div class="skills-content">
+                    <div class="frontend">
+                        <p class="category-title">Frontend Development</p>
+                        <p class="design-title">Designing</p>
+                        <div class="skill-item" id="a"><img src="img/html-5.png" alt="HTML5"><span>HTML</span></div>
+                        <div class="skill-item" id="b"><img src="img/css.png" alt="CSS3"><span>CSS</span></div>
+                        <div class="skill-item" id="c"><img src="img/js.png" alt="JavaScript"><span>JavaScript</span></div>
+                        <div class="skill-item" id="d"><img src="img/reactjs.png" alt="React JS"><span>React JS</span></div>
+                        <div class="skill-item" id="f"><img src="img/figma.png" alt="Figma"><span>Figma</span></div>
+                        <div class="skill-item" id="g"><img src="img/canva.png" alt="Canva"></div>
+                        <div class="skill-item" id="h"><img src="img/blender.webp" alt="Blender"><span>Blender</span></div>
+                        <div class="skill-item" id="i"><img src="img/gimp.jpg" alt="GIMP"><span>GIMP</span></div>
                     </div>
-                    <div id="programming">
-                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Programming</p>
-                        <div id="j" style="display: flex; justify-content: center; align-items: center;"><img src="img/C.png" alt="" height="45px"></div>
-                        <div id="k" style="display: flex; justify-content: center; align-items: center;"><img src="img/c++.png" alt="" height="45px"></div>
-                        <div id="l" style="display: flex; justify-content: center; align-items: center;"><img src="img/python.png" alt="" height="45px"></div>
+                    <div class="programming">
+                        <p class="category-title">Programming</p>
+                        <div class="skill-item" id="j"><img src="img/C.png" alt="C"></div>
+                        <div class="skill-item" id="k"><img src="img/c++.png" alt="C++"></div>
+                        <div class="skill-item" id="l"><img src="img/python.png" alt="Python"></div>
                     </div>
-                    <div id="python">
-                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Python Libraries</p>
-                        <div id="aa" style="display: flex; justify-content: center; align-items: center;"><img src="img/numpy.png" alt="" height="55px"></div>
-                        <div id="bb" style="display: flex; justify-content: center; align-items: center;"><img src="img/pandas.png" alt="" height="50px"></div>
-                        <div id="cc" style="display: flex; justify-content: center; align-items: center;"><img src="img/scikit-learn.png" alt="" height="60px"></div>
-                        <div id="dd" style="display: flex; justify-content: center; align-items: center;"><img src="img/tkinter.png" alt="" height="70px"></div>
-                        <div id="ee" style="display: flex; justify-content: center; align-items: center;"><img src="img/tensorflow.png" alt="" height="70px"></div>
+                    <div class="python-libs">
+                        <p class="category-title">Python Libraries</p>
+                        <div class="skill-item" id="aa"><img src="img/numpy.png" alt="NumPy"></div>
+                        <div class="skill-item" id="bb"><img src="img/pandas.png" alt="Pandas"></div>
+                        <div class="skill-item" id="cc"><img src="img/scikit-learn.png" alt="Scikit-learn"></div>
+                        <div class="skill-item" id="dd"><img src="img/tkinter.png" alt="Tkinter"></div>
+                        <div class="skill-item" id="ee"><img src="img/tensorflow.png" alt="TensorFlow"></div>
                     </div>
-                    <div id="version">
-                        <p style="margin: 0px; grid-area: 2/2/4/17; font-size: 1.7rem;">Version Control</p>
-                        <div id="ab" style="display: flex; justify-content: space-evenly; align-items: center;"><img src="img/git.png" alt="" height="50px"><p style="margin: 0px; font-size: 1.5rem; margin-left: 0px;">Git</p></div>
-                        <div id="ac" style="display: flex; justify-content: space-evenly; align-items: center;"><img src="img/github.png" alt="" height="40px"><p style="margin: 0px; font-size: 1.5rem;">GitHub</p></div>
+                    <div class="version-control">
+                        <p class="category-title">Version Control</p>
+                        <div class="skill-item" id="ab"><img src="img/git.png" alt="Git"><span>Git</span></div>
+                        <div class="skill-item" id="ac"><img src="img/github.png" alt="GitHub"><span>GitHub</span></div>
                     </div>
                 </div>
-            </div>
-            <div id="projects">
-                <h1>Projects<img src="img/rocket.png" alt="rocket" height="60px" style="margin-left: 30px;"></h1>
-                <div id="hr" style="width: 23%;"></div>
-                <div id="project-content">
-                    <div id="p1">
-                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 60%;" onclick="window.open('https://medx-v04.flutterflow.app/','_blank')"><b>Pill Reminder</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">Made for <b>Elder Citizens</b> who tend to miss their medications. This is a <b>fullstack</b> application for android built in <b>FlutterFlow</b>. It uses <b>FireBase</b> as a authentication and storage platform. This app also has built-in <b>AI</b> to help with medications. </p></div>
+            </section>
+
+            <section id="projects">
+                <h1>Projects<img src="img/rocket.png" alt="Rocket"></h1>
+                <div class="hr"></div>
+                <div class="project-content">
+                    <div class="project-item" id="p1">
+                        <p class="project-title" onclick="window.open('https://medx-v04.flutterflow.app/','_blank')"><b>Pill Reminder</b><img src="img/outgoing.png" alt="Outgoing"></p>
+                        <div class="project-description"><p>Made for <b>Elder Citizens</b> who tend to miss their medications. This is a <b>fullstack</b> application for android built in <b>FlutterFlow</b>. It uses <b>FireBase</b> as a authentication and storage platform. This app also has built-in <b>AI</b> to help with medications.</p></div>
                     </div>
-                    <div id="p2">
-                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 60%;" onclick="window.open('https://notsolvablehat.github.io/Jstree-file-explorer-/','_blank')"><b>File Explorer</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">This is a full fledged file explorer built in <b>jQuery</b> and <b>JsTree</b>. It has all the features of a conventional file explorer. Drag-n-Drop, uploading files, Hierarchical representation of files and folders and much more...</p></div>
+                    <div class="project-item" id="p2">
+                        <p class="project-title" onclick="window.open('https://notsolvablehat.github.io/Jstree-file-explorer-/','_blank')"><b>File Explorer</b><img src="img/outgoing.png" alt="Outgoing"></p>
+                        <div class="project-description"><p>This is a full fledged file explorer built in <b>jQuery</b> and <b>JsTree</b>. It has all the features of a conventional file explorer. Drag-n-Drop, uploading files, Hierarchical representation of files and folders and much more...</p></div>
                     </div>
-                    <div id="p3">
-                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 100%;" onclick="window.open('https://github.com/notsolvablehat/notepad-clone','_blank')"><b>Notepad (Practice)</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">This is a <b>simple notepad clone</b>. It was built purely using python's <b>Tkinter library</b>. Though it is not used in current industries, this project gave me a little idea about how layout in softwares work and basic designing.</p></div>                    
+                    <div class="project-item" id="p3">
+                        <p class="project-title" onclick="window.open('https://github.com/notsolvablehat/notepad-clone','_blank')"><b>Notepad (Practice)</b><img src="img/outgoing.png" alt="Outgoing"></p>
+                        <div class="project-description"><p>This is a <b>simple notepad clone</b>. It was built purely using python's <b>Tkinter library</b>. Though it is not used in current industries, this project gave me a little idea about how layout in softwares work and basic designing.</p></div>
                     </div>
-                    <div id="p4">
-                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 100%;" onclick="window.open('https://github.com/notsolvablehat/spam_classification','_blank')"><b>Email Spam Classifier</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">This Classifier was made to compelete an internship. It works by utilizing <b>streamlit</b> for frontend and uses <b>MultinomialNB (scikit-learn)</b> for classifying incoming emails.</p></div>                    
+                    <div class="project-item" id="p4">
+                        <p class="project-title" onclick="window.open('https://github.com/notsolvablehat/spam_classification','_blank')"><b>Email Spam Classifier</b><img src="img/outgoing.png" alt="Outgoing"></p>
+                        <div class="project-description"><p>This Classifier was made to compelete an internship. It works by utilizing <b>streamlit</b> for frontend and uses <b>MultinomialNB (scikit-learn)</b> for classifying incoming emails.</p></div>
                     </div>
-                    <div id="p5">
-                        <p style="margin: 0px; padding: 10px; font-size: 1.5rem; display: flex; align-items: center; cursor: pointer; width: 100%;" onclick="window.open('https://github.com/notsolvablehat/strayTrack','_blank')"><b>StrayTrack (BBMP)</b><img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                        <div style="background-color: white;"><p style="margin: 0px; padding: 10px; font-size: 1.26rem;">This project initially started as an internship project, from <b>GITAM</b>. Later turned to be a <b>BBMP</b> project. This website helps to track and manage street dog population in different regions in Bengaluru.</p></div>                    
+                    <div class="project-item" id="p5">
+                        <p class="project-title" onclick="window.open('https://github.com/notsolvablehat/strayTrack','_blank')"><b>StrayTrack (BBMP)</b><img src="img/outgoing.png" alt="Outgoing"></p>
+                        <div class="project-description"><p>This project initially started as an internship project, from <b>GITAM</b>. Later turned to be a <b>BBMP</b> project. This website helps to track and manage street dog population in different regions in Bengaluru.</p></div>
                     </div>
-                    <div id="note"">
-                        <p style="margin: 0px; padding: 10px; font-size: 1.3rem; display: flex; align-items: center; width: 100%;">To be noted that a few more projects are incompelete, hence they are not listed here.</p>
+                    <div class="note">
+                        <p>To be noted that a few more projects are incompelete, hence they are not listed here.</p>
+                        <img src="img/pin.png" alt="Pinned">
                     </div>
-                    <div id="pin"  style="background-color: transparent; border: none;"><img src="img/pin.png" alt="pinned" height="50px"></div>
                 </div>
-            </div>
-            <div id="about">
-                <h1>About<lord-icon
-    src="https://cdn.lordicon.com/shcfcebj.json"
-    trigger="hover"
-    colors="primary:#121331,secondary:#b4b4b4"
-    style="width:60px;height:60px;margin-left: 10px;">
-</lord-icon></h1>
-                <div id="hr" style="width: 270px;"></div>
-                <table style="margin-top: 3rem;">
-                    <tr>
-                        <th style="font-size: 2rem; font-weight: 900; text-align: start;" colspan="2"><b>Work Experience</b></th>
-                        <th style="font-size: 2rem; font-weight: 900; text-align: start;" colspan="2"><p style="margin: 0px 0px 0px 11rem;" id="education">Education</p></th>
-                    </tr>
-                    <tr>
-                        <td><pre>           </pre></td>
-                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex; justify-content: center; align-items: center;"><img src="img/thunder.png" alt="" height="35px" style="margin-left: 10px;"> OnlineGDB           Jun 2024 - Present</pre>
-                            <div id="online-content">
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Contributor</p>
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Fixed UI Layout in their website</p>
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Currently redesigning their website</p>
-                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 43%;" onclick="window.open('https://onlinegdb.com/credits')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Look at credits page <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                            </div>
-                        </td>
-                        <td><pre>                                   </pre></td>
-                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex; justify-content: center; align-items: center;"><img src="img/college-cap.png" alt="" height="35px" style="margin-left: 10px;"> GITAM University              2022 - Present</pre>
-                            <div id="online-content">
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">B.Tech in Computer Science and Engineering</p>
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">8.1 / 10 GPA</p>
-                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 41%;" onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Get more information <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><pre>           </pre></td>
-                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex;  align-items: center;"><img src="img/fiverr.png" alt="" height="30px" style="margin-left: 20px;">  Fiverr                  2023 - 2024</pre>
-                            <div id="online-content">
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Freelancer</p>
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Helped in the making of a minecraft server</p>
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Sadly they abandoned later</p>
-                            </div>
-                        </td>
-                        <!-- ---------------------------------------------------------------- -->
-                        <td><pre>           </pre></td>
-                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex;  align-items: center;"><img src="img/college.png" alt="" height="30px" style="margin-left: 20px;">  Mahesh PU College          2020 - 2022</pre>
-                            <div id="online-content">
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">11<sup>th</sup> and 12<sup>th</sup></p>
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">91.1 % in Final Exams</p>
-                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 41%;" onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Get more information <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <!-- ---------------------------------------------------------------- -->
-                        <td><pre>           </pre></td>
-                        <td><pre style="font-family: 'Hubballi'; font-size: 28px; display: flex;  align-items: center;"><img src="img/school-bag.png" alt="" height="30px" style="margin-left: 20px;">  M.S.V Public School         2019 - 2020</pre>
-                            <div id="online-content">
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">10<sup>th</sup> - CBSE Board</p>
-                                <p style="margin-left: 40px; font-size: 18px;"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">88.4 % in Finals</p>
-                                <p style="margin-left: 40px; font-size: 18px; display: flex; align-items: center; cursor: pointer; width: 41%;" onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="" height="24px" style="rotate: 6deg;">Get more information <img src="img/outgoing.png" alt="" height="20px" style="margin-left: 10px;"></p>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            </section>
 
-             <!-- background-image: url('img/dots.jpg'); background-repeat: repeat; background-size: 50%; -->
-
-            <div id="contact" style="padding: 60px; margin-top: 3%; position: absolute; left: 50%; transform: translateX(-50%); margin-top: 10rem;">
-                <h1 style="position: absolute; left: 50%; transform: translateX(-50%); top: -10px;">Connect<img src="img/negotiation.png" alt="rocket" height="70px" style="margin-left: 20px;"></h1>
-                <div id="hr" style="width: 330px; position: absolute; left: 50%; transform: translateX(-50%);"></div>
-                <div id="contact-content">
-                    <div id="mac">
-                        <div id="header" style="background-color: #4D4D4F; height: 50px; width: 100%; border-radius: 15px 15px 0px 0px; display: flex; justify-content: space-between; align-items: center;">
-                            <div id="left-div" style="display: flex; margin: 25px; justify-content: space-evenly; width: 70px;">
-                                <div style="height: 15px; width: 15px; border-radius: 15px; background-color: red;"></div>
-                                <div style="height: 15px; width: 15px; border-radius: 15px; background-color: yellow;"></div>
-                                <div style="height: 15px; width: 15px; border-radius: 15px; background-color: rgb(123, 255, 47);"></div>
-                            </div>
-                            <div id="right-div" style="display: flex; margin: 35px; justify-content: space-evenly; width: 30px;">
-                                <div style="height: 5px; width: 5px; border-radius: 5px; background-color: rgb(194, 194, 194);"></div>
-                                <div style="height: 5px; width: 5px; border-radius: 5px; background-color: rgb(194, 194, 194);"></div>
-                                <div style="height: 5px; width: 5px; border-radius: 5px; background-color: rgb(194, 194, 194);"></div>
+            <section id="about">
+                <h1>About<lord-icon src="https://cdn.lordicon.com/shcfcebj.json" trigger="hover" colors="primary:#121331,secondary:#b4b4b4"></lord-icon></h1>
+                <div class="hr"></div>
+                <div class="about-content">
+                    <div class="work-experience">
+                        <h2>Work Experience</h2>
+                        <div class="job">
+                            <p class="job-title"><img src="img/thunder.png" alt="Thunder"> OnlineGDB<span class="date">Jun 2024 - Present</span></p>
+                            <div class="job-details">
+                                <p><img src="img/arrow.png" alt="Arrow">Contributor</p>
+                                <p><img src="img/arrow.png" alt="Arrow">Fixed UI Layout in their website</p>
+                                <p><img src="img/arrow.png" alt="Arrow">Currently redesigning their website</p>
+                                <p onclick="window.open('https://onlinegdb.com/credits')"><img src="img/arrow.png" alt="Arrow">Look at credits page <img src="img/outgoing.png" alt="Outgoing"></p>
                             </div>
                         </div>
-                        <div id="form-content" style="padding: 20px 40px 40px 40px;">
-                            <form style=" display: flex; justify-content: space-between;" onsubmit="sendMail(event)" autocomplete="off">
-                                <div>
-                                    <p style="font-size: 3rem; color: white; margin: 90px 0px 5px 0px;">Let's Talk</p>
-                                    <div style="height: 2px; width: 100px; background-color: white;"></div>
-                                    <p style="margin: 0px; margin-top:60px; color: white; user-select: text;">notsolvablehat@gmail.com</p>
+                        <div class="job">
+                            <p class="job-title"><img src="img/fiverr.png" alt="Fiverr"> Fiverr<span class="date">2023 - 2024</span></p>
+                            <div class="job-details">
+                                <p><img src="img/arrow.png" alt="Arrow">Freelancer</p>
+                                <p><img src="img/arrow.png" alt="Arrow">Helped in the making of a minecraft server</p>
+                                <p><img src="img/arrow.png" alt="Arrow">Sadly they abandoned later</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="education">
+                        <h2>Education</h2>
+                        <div class="school">
+                            <p class="school-title"><img src="img/college-cap.png" alt="College Cap"> GITAM University<span class="date">2022 - Present</span></p>
+                            <div class="school-details">
+                                <p><img src="img/arrow.png" alt="Arrow">B.Tech in Computer Science and Engineering</p>
+                                <p><img src="img/arrow.png" alt="Arrow">8.1 / 10 GPA</p>
+                                <p onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="Arrow">Get more information <img src="img/outgoing.png" alt="Outgoing"></p>
+                            </div>
+                        </div>
+                        <div class="school">
+                            <p class="school-title"><img src="img/college.png" alt="College"> Mahesh PU College<span class="date">2020 - 2022</span></p>
+                            <div class="school-details">
+                                <p><img src="img/arrow.png" alt="Arrow">11<sup>th</sup> and 12<sup>th</sup></p>
+                                <p><img src="img/arrow.png" alt="Arrow">91.1 % in Final Exams</p>
+                                <p onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="Arrow">Get more information <img src="img/outgoing.png" alt="Outgoing"></p>
+                            </div>
+                        </div>
+                        <div class="school">
+                            <p class="school-title"><img src="img/school-bag.png" alt="School Bag"> M.S.V Public School<span class="date">2019 - 2020</span></p>
+                            <div class="school-details">
+                                <p><img src="img/arrow.png" alt="Arrow">10<sup>th</sup> - CBSE Board</p>
+                                <p><img src="img/arrow.png" alt="Arrow">88.4 % in Finals</p>
+                                <p onclick="window.open('https://drive.google.com/drive/folders/1AQznbub8H9GBhxg81jEwrRw5B5J7wkVo?usp=sharing')"><img src="img/arrow.png" alt="Arrow">Get more information <img src="img/outgoing.png" alt="Outgoing"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h1>Connect<img src="img/negotiation.png" alt="Negotiation"></h1>
+                <div class="hr"></div>
+                <div class="contact-content">
+                    <div class="mac-window">
+                        <div class="mac-header">
+                            <div class="mac-buttons">
+                                <div class="mac-button red"></div>
+                                <div class="mac-button yellow"></div>
+                                <div class="mac-button green"></div>
+                            </div>
+                            <div class="mac-dots">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="form-container">
+                            <form onsubmit="sendMail(event)" autocomplete="off">
+                                <div class="form-left">
+                                    <p class="lets-talk">Let's Talk</p>
+                                    <div class="hr-form"></div>
+                                    <p class="email">notsolvablehat@gmail.com</p>
                                 </div>
-                                <div id="input-div">
-                                    <input class="input" type="text" id="name" placeholder="Name"><br>
-                                    <input class="input" type="text" id="company" placeholder="Company"><br>
-                                    <input class="input" type="text" id="message" placeholder="Optional Message"><br>
-                                    <input type="submit" value="Send" id="submit-btn">
+                                <div class="form-right">
+                                    <input class="input" type="text" id="name" placeholder="Name">
+                                    <input class="input" type="text" id="company" placeholder="Company">
+                                    <input class="input" type="text" id="message" placeholder="Optional Message">
+                                    <input type="submit" value="Send" class="submit-btn">
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
+
     <script src="script.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
-
+</body>
 </html>
