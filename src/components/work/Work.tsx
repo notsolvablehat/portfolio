@@ -105,17 +105,33 @@ export default function Work() {
 
       if (reduce) return;
 
-      // #work is pinned over the window-reveal stage for one stage-height of scroll,
-      // so triggers that fire after the reveal start that much later than layout says.
-      const shift = () => document.getElementById("work-stage")?.offsetHeight ?? 0;
-      const at = (edge: string, vp: string) => () => `${edge}+=${shift()} ${vp}`;
+      const at = (edge: string, vp: string) => `${edge} ${vp}`;
 
-      // Heading
+      // Handoff from Experience: its progress line keeps falling (tip held at 60%
+      // of the viewport), reaches the rule under WORK and spreads both ways.
+      const head = ref.current!.querySelector<HTMLElement>(".work-head")!;
+      const col = head.querySelector<HTMLElement>(".work-handoff-col")!;
+      const x = () => (col.offsetParent ? col.offsetLeft : 0); // column is hidden below md
+      gsap.fromTo(
+        ".work-handoff-v",
+        { scaleY: 0 },
+        { scaleY: 1, ease: "none", scrollTrigger: { trigger: ".work-handoff-v", start: "top 60%", end: "bottom 60%", scrub: true } },
+      );
+      gsap.fromTo(
+        ".work-handoff-h",
+        { clipPath: () => `inset(0px ${head.offsetWidth - x()}px 0px ${x()}px)` },
+        {
+          clipPath: "inset(0px 0px 0px 0px)",
+          ease: "power2.out",
+          scrollTrigger: { trigger: ".work-rule", start: "top 60%", end: "top 38%", scrub: true, invalidateOnRefresh: true },
+        },
+      );
+
+      // Heading drops in as the line arrives
       gsap
-        .timeline({ scrollTrigger: { trigger: ".work-head", start: "top 85%" } })
-        .from(".work-letter", { yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.06 })
-        .from(".work-kicker", { autoAlpha: 0, y: 12, duration: 0.6, stagger: 0.08 }, 0.2)
-        .from(".work-rule", { scaleX: 0, duration: 1.2, ease: "expo.inOut" }, 0.1);
+        .timeline({ scrollTrigger: { trigger: ".work-rule", start: "top 62%" } })
+        .from(".work-letter", { yPercent: -110, duration: 1, ease: "expo.out", stagger: 0.06 })
+        .from(".work-kicker", { autoAlpha: 0, y: -12, duration: 0.6, stagger: 0.08 }, 0.15);
 
       gsap.utils.toArray<HTMLElement>(".work-row").forEach((row) => {
         const media = row.querySelector<HTMLElement>(".work-media")!;
@@ -167,7 +183,16 @@ export default function Work() {
       <div className="mx-auto max-w-[1680px] px-[max(20px,6.5vw)] pt-[clamp(90px,9vw,170px)] pb-[clamp(80px,9vw,160px)]">
         {/* Heading */}
         <header className="work-head relative flex flex-wrap items-end justify-between gap-6">
-          <div>
+          {/* Handoff line from Experience: falls from the section top to the rule (behind the heading) */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-[calc(-1*clamp(90px,9vw,170px))] -bottom-6 hidden md:grid md:grid-cols-12 md:gap-x-[3vw]"
+          >
+            <div className="work-handoff-col relative md:col-start-6">
+              <span className="work-handoff-v absolute top-0 left-0 h-full w-[3px] -translate-x-px origin-top bg-accent" />
+            </div>
+          </div>
+          <div className="relative">
             <p className="work-kicker mb-2 font-pixel text-[clamp(12px,1vw,18px)] tracking-[0.14em] text-accent">[BEST FEATURED]</p>
             <h2 className="flex overflow-hidden font-display text-[clamp(72px,13vw,240px)] leading-[0.85] text-ink" aria-label="Work">
               {"WORK".split("").map((l, i) => (
@@ -182,7 +207,8 @@ export default function Work() {
             <br />
             PROJECTS
           </p>
-          <span aria-hidden className="work-rule dash-h absolute -bottom-6 left-0 h-px w-full origin-left" />
+          <span aria-hidden className="work-rule dash-h absolute -bottom-6 left-0 h-px w-full" />
+          <span aria-hidden className="work-handoff-h absolute -bottom-6 left-0 h-[3px] w-full -translate-y-px bg-accent" />
         </header>
 
         {/* Projects */}

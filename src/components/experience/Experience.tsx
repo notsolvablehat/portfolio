@@ -154,6 +154,16 @@ export default function Experience() {
         });
       });
 
+      gsap.fromTo(
+        ".exp-handoff",
+        { scaleY: 0 },
+        {
+          scaleY: 1,
+          ease: "none",
+          scrollTrigger: { trigger: ".exp-handoff", start: at("top", "60%"), end: at("bottom", "60%"), scrub: true, invalidateOnRefresh: true },
+        },
+      );
+
       // The counters write text directly; put the real values back on cleanup.
       return () => counters.forEach(({ el, value }) => (el.textContent = value));
     },
@@ -162,7 +172,7 @@ export default function Experience() {
 
   return (
     <section ref={ref} id="experience" className="relative z-10 overflow-x-clip bg-cream">
-      <div className="mx-auto max-w-[1680px] px-[max(20px,6.5vw)] pt-[clamp(110px,11vw,200px)] pb-[clamp(60px,7vw,120px)]">
+      <div className="mx-auto max-w-[1680px] px-[max(20px,6.5vw)] pt-[clamp(110px,11vw,200px)]">
         <header className="exp-head relative flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="exp-kicker mb-2 font-pixel text-[clamp(12px,1vw,18px)] tracking-[0.14em] text-accent">[WHERE I&apos;VE BEEN]</p>
@@ -187,16 +197,25 @@ export default function Experience() {
           ))}
         </div>
 
-        <div className="mt-[clamp(56px,6vw,110px)] flex justify-end">
-          <a
-            href={SITE.resume}
-            target="_blank"
-            rel="noreferrer"
-            className="group inline-flex items-center gap-2 font-pixel text-[clamp(12px,0.95vw,17px)] tracking-[0.14em] text-accent"
-          >
-            [FULL RÉSUMÉ
-            <Icon name="arrow_downward" className="inline-block transition-transform duration-200 group-hover:translate-y-1" />]
-          </a>
+        {/* Handoff: the last role's progress line carries on to the bottom of the
+            section, where Work's line picks it up and turns it into its rule. */}
+        <div className="relative">
+          <div aria-hidden className="pointer-events-none absolute inset-0 hidden md:grid md:grid-cols-12 md:gap-x-[3vw]">
+            <div className="relative md:col-span-7 md:col-start-6">
+              <span className="exp-handoff absolute top-0 left-0 h-full w-[3px] -translate-x-px origin-top bg-accent" />
+            </div>
+          </div>
+          <div className="flex justify-end pt-[clamp(56px,6vw,110px)] pb-[clamp(60px,7vw,120px)]">
+            <a
+              href={SITE.resume}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2 font-pixel text-[clamp(12px,0.95vw,17px)] tracking-[0.14em] text-accent"
+            >
+              [FULL RÉSUMÉ
+              <Icon name="arrow_downward" className="inline-block transition-transform duration-200 group-hover:translate-y-1" />]
+            </a>
+          </div>
         </div>
       </div>
     </section>
