@@ -384,7 +384,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <ScrollCue target="#work" />
+      <ScrollCue target="#experience" />
     </section>
   );
 }

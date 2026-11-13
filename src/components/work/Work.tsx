@@ -104,10 +104,7 @@ export default function Work() {
 
       if (reduce) return;
 
-      // #work is pinned under the hero transition for one hero-height of scroll,
-      // so every trigger inside it starts that much later than its layout says.
-      const shift = () => document.getElementById("hero-pin")?.offsetHeight ?? 0;
-      const at = (edge: string, vp: string) => () => `${edge}+=${shift()} ${vp}`;
+      const at = (edge: string, vp: string) => `${edge} ${vp}`;
 
       // Heading
       gsap
@@ -163,7 +160,7 @@ export default function Work() {
 
   return (
     <section ref={ref} id="work" className="relative z-10 overflow-x-clip bg-cream">
-      <div className="mx-auto max-w-[1680px] px-[max(20px,6.5vw)] pt-[clamp(110px,11vw,200px)] pb-[clamp(80px,9vw,160px)]">
+      <div className="mx-auto max-w-[1680px] px-[max(20px,6.5vw)] pt-[clamp(90px,9vw,170px)] pb-[clamp(80px,9vw,160px)]">
         {/* Heading */}
         <header className="work-head relative flex flex-wrap items-end justify-between gap-6">
           <div>

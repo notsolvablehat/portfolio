@@ -6,8 +6,8 @@ export const SITE = {
 
 export const NAV = [
   { label: "HOME", href: "#top" },
-  { label: "WORK", href: "#work" },
   { label: "EXPERIENCE", href: "#experience" },
+  { label: "WORK", href: "#work" },
   { label: "ABOUT", href: "#about" },
   { label: "CONTACT", href: "#contact" },
 ] as const;

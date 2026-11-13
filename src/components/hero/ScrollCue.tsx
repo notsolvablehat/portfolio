@@ -7,7 +7,7 @@ export default function ScrollCue({ target }: { target: string }) {
   return (
     <button
       type="button"
-      aria-label="Scroll to work"
+      aria-label="Scroll down"
       onClick={() => scrollToTarget(lenis.current, target)}
       className="hero-cue hero-chrome group absolute right-[max(16px,3.25vw)] bottom-[max(16px,1.5vw)] z-50 flex size-[clamp(60px,6.9vw,140px)] items-center justify-center overflow-hidden rounded-full bg-accent text-white transition-transform duration-500 ease-[cubic-bezier(.34,1.56,.64,1)] hover:scale-105"
     >
