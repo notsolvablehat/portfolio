@@ -1,18 +1,20 @@
 @import "tailwindcss";
 
-/* Design tokens — sampled from the reference screenshots */
+/* Design tokens */
 :root {
   --cream: #fdf0d5;
-  --ink: #2b2b2b;
-  --accent: #e43d1f;
-  --line: rgba(43, 43, 43, 0.55);
+  --accent: #e63e21;
+  --ink: #323232;
+  --white: #ffffff;
+  --pure-black: #000000; /* header name + current time ONLY */
 }
 
 @theme inline {
   --color-cream: var(--cream);
   --color-ink: var(--ink);
   --color-accent: var(--accent);
-  --color-line: var(--line);
+  --color-white: var(--white);
+  --color-pure-black: var(--pure-black);
 
   /* font-sans → Montserrat (headlines/body), font-display → Audiowide (nav/WORK),
      font-pixel → Bitcount Prop Single (labels, [bracket] notes) */
@@ -47,4 +49,81 @@ html.lenis body {
 }
 .lenis [data-lenis-prevent] {
   overscroll-behavior: contain;
+}
+
+/* ───────── Hero stage ─────────
+   .hero is a size container. Each layer holds a .stage:
+   - mobile: the stage fills the hero; x/size in cqw, y in cqh.
+   - md+: the stage keeps the 2000×1218 reference aspect, bottom-anchored and
+     centered, and every value is in cqw so the composition never distorts.
+   .place reads per-breakpoint vars set by <Place>: --p* (phone), --d* (desktop). */
+.hero {
+  container-type: size;
+  --mx: -9999px;
+  --my: -9999px;
+  --win: 120px;
+}
+.stage {
+  position: absolute;
+  inset: 0;
+  container-type: size;
+}
+.place {
+  position: absolute;
+  left: calc(var(--px) * 1cqw);
+  top: calc(var(--py) * 1cqh);
+  width: calc(var(--pw) * 1cqw);
+  font-size: calc(var(--pf) * 1cqw);
+}
+@media (min-width: 768px) {
+  .stage {
+    inset: auto;
+    left: 50%;
+    bottom: 0;
+    translate: -50% 0;
+    width: min(100cqw, 164.2cqh);
+    height: min(60.9cqw, 100cqh);
+  }
+  .place {
+    left: calc(var(--dx) * 1cqw);
+    top: calc(var(--dy) * 1cqw);
+    width: calc(var(--dw) * 1cqw);
+    font-size: calc(var(--df) * 1cqw);
+  }
+}
+
+/* The window: the reveal layer is clipped to a square centred on (--mx, --my). */
+.reveal {
+  clip-path: inset(
+    calc(var(--my) - var(--win) / 2) calc(100% - var(--mx) - var(--win) / 2)
+      calc(100% - var(--my) - var(--win) / 2) calc(var(--mx) - var(--win) / 2)
+  );
+}
+.dash-v {
+  background-image: repeating-linear-gradient(to bottom, var(--ink) 0 3px, transparent 3px 6px);
+}
+.dash-h {
+  background-image: repeating-linear-gradient(to right, var(--ink) 0 3px, transparent 3px 6px);
+}
+
+/* Clock label that rides with the window */
+.hero-time {
+  left: calc(var(--mx) - var(--win) / 2);
+  top: calc(var(--my) + var(--win) / 2 + 14px);
+  font-size: 11px;
+  transition: translate 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.hero-time[data-flip] {
+  translate: calc(-100% + var(--win)) 0;
+}
+@media (min-width: 768px) {
+  .hero-time {
+    left: calc(var(--mx) + var(--win) * 0.35);
+    top: calc(var(--my) - var(--win) * 0.9);
+    translate: 0 -50%;
+    font-size: max(10px, calc(var(--win) * 0.105));
+  }
+  .hero-time[data-flip] {
+    translate: calc(-100% - var(--win) * 0.7) -50%;
+  }
 }
