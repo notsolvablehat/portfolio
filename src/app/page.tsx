@@ -2,6 +2,7 @@ import Hero from "@/components/hero/Hero";
 import Work from "@/components/work/Work";
 import Experience from "@/components/experience/Experience";
 import Contact from "@/components/contact/Contact";
+import Desk from "@/components/playground/Desk";
 import EyeZoom from "@/components/transitions/EyeZoom";
 import ViewCursor from "@/components/work/ViewCursor";
 
@@ -16,6 +17,7 @@ export default function Home() {
       <EyeZoom />
       <Experience />
       <Work />
+      <Desk />
       <Contact />
       <ViewCursor />
     </main>
