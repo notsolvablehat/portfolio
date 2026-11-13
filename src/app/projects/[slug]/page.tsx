@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { PROJECTS, getProject } from "@/lib/projects";
 import { CaseStudy } from "./case-study";
+import Icon from "@/components/ui/Icon";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -18,7 +19,7 @@ export default function ProjectPage({ params }: PageProps<"/projects/[slug]">) {
   return (
     <main className="mx-auto min-h-svh max-w-[1680px] px-[max(20px,6.5vw)] pt-[clamp(92px,7.5vw,132px)] pb-[clamp(80px,8vw,140px)]">
       <Link href="/projects" className="relative z-10 inline-block font-pixel text-[clamp(12px,0.95vw,17px)] tracking-[0.14em] text-accent hover:underline">
-        [← ALL PROJECTS]
+        [<Icon name="arrow_back" /> ALL PROJECTS]
       </Link>
       <Suspense fallback={<CaseStudySkeleton />}>
         <CaseStudy params={params} />

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PROJECTS, getProject } from "@/lib/projects";
 import ProjectMockup from "@/components/work/ProjectMockup";
+import Icon from "@/components/ui/Icon";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -47,7 +48,7 @@ export async function CaseStudy({ params }: Pick<PageProps<"/projects/[slug]">, 
             rel="noreferrer"
             className="font-pixel text-[clamp(12px,0.95vw,17px)] tracking-[0.14em] text-accent hover:underline"
           >
-            [VISIT LIVE SITE ↗]
+            [VISIT LIVE SITE <Icon name="arrow_outward" />]
           </a>
         </p>
       )}
@@ -66,7 +67,7 @@ export async function CaseStudy({ params }: Pick<PageProps<"/projects/[slug]">, 
             {next.name}
           </span>
         </span>
-        <span className="font-display text-[clamp(32px,4vw,72px)] text-accent transition-transform duration-300 group-hover:translate-x-2">→</span>
+        <Icon name="arrow_forward" className="font-display text-[clamp(32px,4vw,72px)] text-accent transition-transform duration-300 group-hover:translate-x-2" />
       </Link>
     </>
   );

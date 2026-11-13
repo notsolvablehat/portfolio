@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import HeroClock from "@/components/hero/HeroClock";
+import Icon from "@/components/ui/Icon";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -112,7 +113,7 @@ export default function WindowReveal() {
           CURRENT TIME: <HeroClock /> IST
         </p>
         <p className="wr-label absolute top-full left-0 mt-3 font-pixel text-[clamp(11px,0.85vw,15px)] tracking-[0.14em] whitespace-nowrap text-accent">
-          [SELECTED WORK ↓]
+          [SELECTED WORK <Icon name="arrow_downward" />]
         </p>
       </div>
     </div>

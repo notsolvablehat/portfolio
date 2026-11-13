@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import Icon from "@/components/ui/Icon";
 
 /**
  * Red "VIEW ↗" circle that follows the mouse over project mockups (.work-media).
@@ -56,7 +57,7 @@ export default function ViewCursor() {
       style={{ transform: "translate(-50%, -50%) scale(0)" }} // hidden until JS takes over
       className="pointer-events-none fixed top-0 left-0 z-30 flex size-24 items-center justify-center rounded-full bg-accent font-pixel text-[12px] tracking-[0.12em] text-white"
     >
-      VIEW ↗
+      VIEW <Icon name="arrow_outward" />
     </div>
   );
 }

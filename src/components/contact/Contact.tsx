@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import HeroClock from "@/components/hero/HeroClock";
 import { scrollToTarget, useLenis } from "@/components/providers/SmoothScroll";
 import { SITE, SOCIALS } from "@/lib/site";
+import Icon from "@/components/ui/Icon";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -48,7 +49,7 @@ function MagneticHello() {
     >
       <span aria-hidden className="absolute inset-0 origin-bottom scale-y-0 rounded-full bg-cream transition-transform duration-500 ease-[cubic-bezier(.76,0,.24,1)] group-hover:scale-y-100" />
       <span className="relative font-display text-[clamp(13px,1.05vw,20px)] leading-tight tracking-[0.04em] transition-colors duration-300 group-hover:text-ink">
-        SAY HELLO <span className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+        SAY HELLO <Icon name="arrow_outward" className="inline-block transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
       </span>
     </a>
   );
@@ -147,7 +148,7 @@ export default function Contact() {
                       className="group flex items-center justify-between gap-4 border-b border-cream/15 py-2 font-sans text-[clamp(16px,1.2vw,21px)] transition-colors duration-200 hover:text-accent"
                     >
                       {l.label}
-                      <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>
+                      <Icon name="arrow_outward" className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
                     </a>
                   </li>
                 ))}
@@ -166,10 +167,10 @@ export default function Contact() {
 
           <div className="contact-col mt-[clamp(48px,6vw,100px)] flex items-center justify-between gap-6 font-pixel text-[clamp(11px,0.8vw,14px)] tracking-[0.14em] text-cream/55">
             <a href={SITE.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="group transition-colors hover:text-accent">
-              [{SITE.handle} <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>]
+              [{SITE.handle} <Icon name="arrow_outward" className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />]
             </a>
             <button type="button" onClick={() => scrollToTarget(lenis.current, "#top")} className="group text-cream transition-colors hover:text-accent">
-              [BACK TO TOP <span className="inline-block transition-transform duration-200 group-hover:-translate-y-1">↑</span>]
+              [BACK TO TOP <Icon name="arrow_upward" className="inline-block transition-transform duration-200 group-hover:-translate-y-1" />]
             </button>
           </div>
         </div>

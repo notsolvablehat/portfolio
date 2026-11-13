@@ -4,6 +4,7 @@ import FloodIn from "@/components/work/FloodIn";
 import ProjectMockup from "@/components/work/ProjectMockup";
 import { PROJECTS } from "@/lib/projects";
 import { SOCIALS } from "@/lib/site";
+import Icon from "@/components/ui/Icon";
 
 export const metadata: Metadata = {
   title: "All work — Mohammed Yaseen Agha",
@@ -20,7 +21,7 @@ export default function ProjectsPage() {
       <header className="flex flex-wrap items-end justify-between gap-6 border-b border-dashed border-ink pb-6">
         <div>
           <Link href="/#work" className="relative z-10 inline-block font-pixel text-[clamp(12px,0.95vw,17px)] tracking-[0.14em] text-accent hover:underline">
-            [← BACK HOME]
+            [<Icon name="arrow_back" /> BACK HOME]
           </Link>
           <h1 className="mt-3 font-display text-[clamp(56px,10vw,180px)] leading-[0.85] text-ink">ALL WORK</h1>
         </div>
@@ -56,7 +57,7 @@ export default function ProjectsPage() {
 
       <p className="mt-[clamp(72px,8vw,140px)] text-center font-pixel text-[clamp(12px,0.95vw,17px)] tracking-[0.14em] text-accent">
         <a href={github} target="_blank" rel="noreferrer" className="hover:underline">
-          [MORE EXPERIMENTS ON GITHUB ↗]
+          [MORE EXPERIMENTS ON GITHUB <Icon name="arrow_outward" />]
         </a>
       </p>
     </main>

@@ -9,6 +9,7 @@ import { FEATURED, type Project } from "@/lib/projects";
 import { cn } from "@/lib/utils";
 import AllProjectsButton from "./AllProjectsButton";
 import ProjectMockup from "./ProjectMockup";
+import Icon from "@/components/ui/Icon";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -77,7 +78,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
           className="work-fade group mt-8 inline-flex items-center gap-2 font-pixel text-[clamp(12px,0.85vw,15px)] tracking-[0.12em] text-accent"
         >
           [VIEW CASE STUDY
-          <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>]
+          <Icon name="arrow_outward" className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />]
         </Link>
         {project.url && (
           <a
@@ -87,7 +88,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
             className="work-fade group mt-8 ml-6 inline-flex items-center gap-2 font-pixel text-[clamp(12px,0.85vw,15px)] tracking-[0.12em] text-ink"
           >
             [VISIT LIVE
-            <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>]
+            <Icon name="arrow_outward" className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />]
           </a>
         )}
       </div>

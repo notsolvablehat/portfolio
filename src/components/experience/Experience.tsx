@@ -7,6 +7,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { EXPERIENCE, type Role } from "@/lib/experience";
 import { SITE } from "@/lib/site";
+import Icon from "@/components/ui/Icon";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -61,12 +62,12 @@ function RoleBlock({ role, index }: { role: Role; index: number }) {
           <p className="exp-fade mt-7 flex flex-wrap gap-x-6 gap-y-3 font-pixel text-[clamp(12px,0.85vw,15px)] tracking-[0.12em]">
             {role.project && (
               <Link href={`/projects/${role.project}`} className="group text-accent">
-                [CASE STUDY <span className={arrow}>↗</span>]
+                [CASE STUDY <Icon name="arrow_outward" className={arrow} />]
               </Link>
             )}
             {role.url && (
               <a href={role.url} target="_blank" rel="noreferrer" className="group text-ink">
-                [{new URL(role.url).hostname.toUpperCase()} <span className={arrow}>↗</span>]
+                [{new URL(role.url).hostname.toUpperCase()} <Icon name="arrow_outward" className={arrow} />]
               </a>
             )}
           </p>
@@ -194,7 +195,7 @@ export default function Experience() {
             className="group inline-flex items-center gap-2 font-pixel text-[clamp(12px,0.95vw,17px)] tracking-[0.14em] text-accent"
           >
             [FULL RÉSUMÉ
-            <span className="inline-block transition-transform duration-200 group-hover:translate-y-1">↓</span>]
+            <Icon name="arrow_downward" className="inline-block transition-transform duration-200 group-hover:translate-y-1" />]
           </a>
         </div>
       </div>
