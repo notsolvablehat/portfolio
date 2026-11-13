@@ -356,7 +356,7 @@ export default function Hero() {
           <div className="hero-frame size-full border-[3px] border-ink" />
         </div>
         <p aria-hidden className="hero-time absolute whitespace-nowrap font-pixel tracking-[0.08em] text-pure-black">
-          CURRENT TIME: <HeroClock /> IST
+          YOUR TIME: <HeroClock viewer />
         </p>
         <div className="stage">
           <Place {...SWAP_BTN} className="hero-swap pointer-events-auto min-w-[26px]">
