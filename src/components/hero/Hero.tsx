@@ -26,7 +26,7 @@ const ROW_3: Spot = { d: [15.25, 32.2, undefined, 7.85], t: [12, 43, undefined, 
 
 const NOTE_F = { d: 1.12, t: 1.4, m: 3.1 };
 const HANDLE: Spot = { d: [59, 18.65, undefined, NOTE_F.d], t: [56, 30, undefined, NOTE_F.t], m: [52, 24.6, undefined, NOTE_F.m] };
-const SWAP_BTN: Spot = { d: [70.7, 18.15, 2.1], t: [71, 29.3, 3.4], m: [84, 24, 8] };
+const SWAP_BTN: Spot = { d: [87.5, 9.2, 2.1], t: [71, 29.3, 3.4], m: [84, 24, 8] };
 
 /** Window size as a fraction of stage width. */
 const WINDOW_SIZE = { desktop: 0.074, tall: 0.1, mobile: 0.3 };
@@ -275,6 +275,9 @@ export default function Hero() {
       document.fonts.ready.then(write);
       const ro = new ResizeObserver(measure);
       ro.observe(hero);
+      // the clock's text changes width once it hydrates (and with the time), so re-check the flip
+      const labelRo = new ResizeObserver(() => write());
+      labelRo.observe(label);
       hero.addEventListener("pointermove", onPointer);
       hero.addEventListener("touchstart", onTouch, { passive: true });
       hero.addEventListener("touchmove", onTouch, { passive: true });
@@ -295,6 +298,7 @@ export default function Hero() {
 
       return () => {
         ro.disconnect();
+        labelRo.disconnect();
         hero.removeEventListener("pointermove", onPointer);
         hero.removeEventListener("touchstart", onTouch);
         hero.removeEventListener("touchmove", onTouch);
