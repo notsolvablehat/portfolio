@@ -154,7 +154,7 @@ export default function Arcade() {
 
   return (
     <section id="arcade" className="relative z-10 bg-cream">
-    <div className="mx-auto max-w-[1680px] px-[max(20px,6.5vw)] pb-[clamp(80px,9vw,160px)]">
+    <div className="mx-auto max-w-[1680px] px-[max(20px,6.5vw)] pt-[clamp(40px,5vw,90px)] pb-[clamp(80px,9vw,160px)]">
       <div className="flex flex-wrap items-end justify-between gap-4 border-b border-dashed border-ink pb-4">
         <h3 className="font-display text-[clamp(32px,4vw,64px)] leading-none text-ink">ARCADE</h3>
         <p className="font-pixel text-[clamp(11px,0.85vw,15px)] tracking-[0.14em] text-accent">[PICK A GAME · BEST SCORES STAY ON THIS DEVICE]</p>
