@@ -165,7 +165,9 @@ export default function Contact() {
           </div>
 
           <div className="contact-col mt-[clamp(48px,6vw,100px)] flex items-center justify-between gap-6 font-pixel text-[clamp(11px,0.8vw,14px)] tracking-[0.14em] text-cream/55">
-            <span>[{SITE.handle}]</span>
+            <a href={SITE.instagram} target="_blank" rel="noreferrer" aria-label="Instagram" className="group transition-colors hover:text-accent">
+              [{SITE.handle} <span className="inline-block transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1">↗</span>]
+            </a>
             <button type="button" onClick={() => scrollToTarget(lenis.current, "#top")} className="group text-cream transition-colors hover:text-accent">
               [BACK TO TOP <span className="inline-block transition-transform duration-200 group-hover:-translate-y-1">↑</span>]
             </button>

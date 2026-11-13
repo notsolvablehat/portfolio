@@ -2,6 +2,7 @@ export const SITE = {
   name: "Mohammed Yaseen Agha",
   handle: "SOLVABLEHAT",
   resume: "/Mohammed%20Yaseen%20Agha%20Resume.pdf",
+  instagram: "https://www.instagram.com/solvablehat",
 };
 
 export const NAV = [

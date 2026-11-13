@@ -104,11 +104,14 @@ export default function Work() {
 
       if (reduce) return;
 
-      const at = (edge: string, vp: string) => `${edge} ${vp}`;
+      // #work is pinned over the window-reveal stage for one stage-height of scroll,
+      // so triggers that fire after the reveal start that much later than layout says.
+      const shift = () => document.getElementById("work-stage")?.offsetHeight ?? 0;
+      const at = (edge: string, vp: string) => () => `${edge}+=${shift()} ${vp}`;
 
       // Heading
       gsap
-        .timeline({ scrollTrigger: { trigger: ".work-head", start: at("top", "60%"), invalidateOnRefresh: true } })
+        .timeline({ scrollTrigger: { trigger: ".work-head", start: "top 85%" } })
         .from(".work-letter", { yPercent: 110, duration: 1.1, ease: "expo.out", stagger: 0.06 })
         .from(".work-kicker", { autoAlpha: 0, y: 12, duration: 0.6, stagger: 0.08 }, 0.2)
         .from(".work-rule", { scaleX: 0, duration: 1.2, ease: "expo.inOut" }, 0.1);

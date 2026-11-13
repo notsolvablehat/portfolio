@@ -87,14 +87,18 @@ export default function EyeZoom() {
 
     // Deep link (e.g. /#work from another page): the browser scrolled before the
     // pins existed, so jump again now that the layout is final — past the transition.
+    // Deferred so later transitions (e.g. the Work window) have set their own scrollAt.
     const linked = location.hash.length > 1 ? document.querySelector<HTMLElement>(location.hash) : null;
-    if (linked === next) window.scrollTo(0, hero.offsetHeight);
-    else if (linked && linked !== hero) window.scrollTo(0, linked.getBoundingClientRect().top + window.scrollY);
+    const jump =
+      linked && linked !== hero
+        ? setTimeout(() => window.scrollTo(0, linked.dataset.scrollAt ? Number(linked.dataset.scrollAt) : linked.getBoundingClientRect().top + window.scrollY))
+        : undefined;
 
     // Undo everything render() wrote — these writes happen in scroll callbacks,
     // outside the gsap context, so they aren't reverted automatically. Without
     // this, navigating away mid/after the zoom and back leaves the hero at 2.8×.
     return () => {
+      clearTimeout(jump);
       ScrollTrigger.removeEventListener("refreshInit", measure);
       gsap.set(hero, { clearProps: "transform,transformOrigin,scale" });
       chrome.forEach((el) => (el.style.opacity = ""));

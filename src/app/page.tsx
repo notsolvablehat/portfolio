@@ -3,6 +3,7 @@ import Work from "@/components/work/Work";
 import Experience from "@/components/experience/Experience";
 import Contact from "@/components/contact/Contact";
 import EyeZoom from "@/components/transitions/EyeZoom";
+import WindowReveal from "@/components/transitions/WindowReveal";
 import ViewCursor from "@/components/work/ViewCursor";
 
 export default function Home() {
@@ -15,6 +16,8 @@ export default function Home() {
       {/* EyeZoom must mount before the sections so its pins exist before their scroll triggers */}
       <EyeZoom />
       <Experience />
+      {/* Experience → Work: the hero window returns and opens onto #work */}
+      <WindowReveal />
       <Work />
       <Contact />
       <ViewCursor />
