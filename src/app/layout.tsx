@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Audiowide, Bitcount_Prop_Single, Montserrat } from "next/font/google";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import Header from "@/components/Header";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Header />
           {children}
         </SmoothScroll>
+        <Analytics />
       </body>
     </html>
   );
