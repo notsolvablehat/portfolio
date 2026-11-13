@@ -139,7 +139,7 @@ export default function Header() {
             />
 
             <motion.nav
-              className="absolute inset-y-0 right-0 flex w-full flex-col bg-cream md:w-[max(380px,26vw)]"
+              className="absolute inset-y-0 right-0 flex w-full flex-col bg-cream md:w-[max(400px,30vw)]"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -163,7 +163,7 @@ export default function Header() {
                       <span className="w-[1.4em] font-display text-[clamp(12px,0.85vw,16px)] text-ink">{i + 1}.</span>
                       <span
                         className={cn(
-                          "font-display text-[clamp(36px,2.9vw,60px)] leading-none transition-[color,translate] duration-150 ease-out group-hover:translate-x-2 group-hover:text-accent",
+                          "font-display text-[clamp(34px,2.6vw,54px)] leading-none transition-[color,translate] duration-150 ease-out group-hover:translate-x-2 group-hover:text-accent",
                           active === item.href ? "text-accent" : "text-ink",
                         )}
                       >

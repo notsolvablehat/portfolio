@@ -1,12 +1,13 @@
 export const SITE = {
   name: "Mohammed Yaseen Agha",
   handle: "SOLVABLEHAT",
-  resume: "/resume.pdf",
+  resume: "/Mohammed%20Yaseen%20Agha%20Resume.pdf",
 };
 
 export const NAV = [
   { label: "HOME", href: "#top" },
   { label: "WORK", href: "#work" },
+  { label: "EXPERIENCE", href: "#experience" },
   { label: "ABOUT", href: "#about" },
   { label: "CONTACT", href: "#contact" },
 ] as const;

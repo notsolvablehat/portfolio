@@ -1,5 +1,6 @@
 import Hero from "@/components/hero/Hero";
 import Work from "@/components/work/Work";
+import Experience from "@/components/experience/Experience";
 import EyeZoom from "@/components/transitions/EyeZoom";
 import ViewCursor from "@/components/work/ViewCursor";
 
@@ -13,6 +14,7 @@ export default function Home() {
       {/* EyeZoom must mount before Work so its pins exist before Work's scroll triggers */}
       <EyeZoom />
       <Work />
+      <Experience />
       <ViewCursor />
     </main>
   );
