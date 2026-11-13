@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Audiowide, Bitcount_Prop_Single, Montserrat } from "next/font/google";
 import SmoothScroll from "@/components/providers/SmoothScroll";
+import Header from "@/components/Header";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -35,7 +36,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${montserrat.variable} ${audiowide.variable} ${bitcount.variable} antialiased`}
     >
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <Header />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

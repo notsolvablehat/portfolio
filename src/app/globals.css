@@ -226,3 +226,12 @@ html.lenis body {
     translate: calc(-100% - var(--win) * 0.7) -50%;
   }
 }
+
+/* GSAP pin spacers are invisible wrappers; #work's spacer overlaps the hero
+   during the eye-zoom pin, so let pointer events pass through to it. */
+.pin-spacer {
+  pointer-events: none;
+}
+.pin-spacer > * {
+  pointer-events: auto;
+}

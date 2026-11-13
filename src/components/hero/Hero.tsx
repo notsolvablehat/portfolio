@@ -201,11 +201,14 @@ export default function Hero() {
       const homePoint = () => {
         const h = hero.getBoundingClientRect();
         const r = hero.querySelector("[data-window-home]")!.getBoundingClientRect();
-        return { x: r.left + r.width * 0.5 - h.left, y: r.top + r.height * 0.24 - h.top };
+        // divide out any scale on the hero so the point is in layout pixels
+        const k = h.width / hero.offsetWidth || 1;
+        return { x: (r.left + r.width * 0.5 - h.left) / k, y: (r.top + r.height * 0.24 - h.top) / k };
       };
 
       const measure = () => {
-        const w = stage.getBoundingClientRect().width;
+        // layout width — unaffected by the eye-zoom's scale transform on the hero
+        const w = stage.offsetWidth;
         const f = tall.matches ? WINDOW_SIZE.tall : desktop.matches ? WINDOW_SIZE.desktop : WINDOW_SIZE.mobile;
         win.base = Math.max(desktop.matches ? 84 : 104, w * f);
         applyWin();
@@ -239,15 +242,21 @@ export default function Hero() {
       // Swap: the window floods the screen with the lower layer, the layers
       // trade places while the window is at 0, then it reopens on the old surface.
       let swapping = false;
+      // In the swapped state the window is just a see-through, click-through
+      // frame: the engineer layer is hidden except while the swap-back flood needs it.
+      const engineer = hero.querySelectorAll<HTMLElement>(".layer-y-text, .layer-y-portrait");
+      const setPeek = (on: boolean) => engineer.forEach((el) => (el.style.visibility = on ? "" : "hidden"));
       const toggleRoles = () => {
         const next = !hero.hasAttribute("data-swapped");
         hero.toggleAttribute("data-swapped", next);
+        setPeek(!next);
         setSwapped(next);
       };
       swapRef.current = contextSafe!(() => {
         if (swapping) return;
         if (reduce) return toggleRoles();
         swapping = true;
+        setPeek(true);
         const flood = (2 * Math.hypot(hero.clientWidth, hero.clientHeight)) / win.base;
         gsap
           .timeline({ onComplete: () => void (swapping = false) })
@@ -338,7 +347,7 @@ export default function Hero() {
       </div>
 
       {/* Window frame, clock, swap button — always on top */}
-      <div className="pointer-events-none absolute inset-0 z-40">
+      <div className="hero-chrome pointer-events-none absolute inset-0 z-40">
         <div
           aria-hidden
           className="absolute"

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import { usePathname, useRouter } from "next/navigation";
 import { NAV, SITE, SOCIALS } from "@/lib/site";
 import { scrollToTarget, useLenis } from "@/components/providers/SmoothScroll";
 import { cn } from "@/lib/utils";
@@ -25,6 +26,8 @@ export default function Header() {
   const [active, setActive] = useState<string>(NAV[0].href);
   const [hovered, setHovered] = useState<number | null>(null);
   const lenis = useLenis();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     if (!open) return;
@@ -38,20 +41,62 @@ export default function Header() {
     };
   }, [open, lenis]);
 
+  // Past the top the header gets a cream backdrop so it never sits on top of
+  // content; it slides away while scrolling down and returns on scroll up.
+  const [solid, setSolid] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    let raf = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setSolid(y > 40);
+        if (Math.abs(y - last) > 6) {
+          setHidden(y > last && y > 160);
+          last = y;
+        }
+      });
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [pathname]);
+
   const openMenu = () => {
-    setActive(currentSection());
+    setActive(pathname === "/" ? currentSection() : "");
     setHovered(null);
     setOpen(true);
   };
 
+  // On the home page, close the menu and scroll (scroll-driven transitions play
+  // on the way, e.g. the eye zoom into #work). Elsewhere, go home first.
   const go = (href: string) => {
     setOpen(false);
-    scrollToTarget(lenis.current, href);
+    if (pathname !== "/") return router.push(`/${href === "#top" ? "" : href}`);
+    // let the panel start sliding out before the page moves
+    setTimeout(() => scrollToTarget(lenis.current, href), 180);
   };
 
   return (
     <>
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex items-center justify-between px-[max(20px,3.6vw)] pt-[max(20px,2.2vw)]">
+      <header
+        className={cn(
+          "pointer-events-none fixed inset-x-0 top-0 z-50 flex items-center justify-between px-[max(20px,3.6vw)] pt-[max(20px,2.2vw)] pb-[max(14px,1.2vw)] transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)]",
+          hidden && !open && "-translate-y-full",
+        )}
+      >
+        <span
+          aria-hidden
+          className={cn(
+            "absolute inset-0 -z-10 border-b border-dashed border-ink/30 bg-cream/85 backdrop-blur-md transition-opacity duration-300",
+            solid && !open ? "opacity-100" : "opacity-0",
+          )}
+        />
         <a
           href="#top"
           onClick={(e) => {
