@@ -157,7 +157,7 @@ export default function Contact() {
 
             {/* Time */}
             <div className="contact-col md:col-span-3">
-              <p className={label}>[LOCAL TIME]</p>
+              <p className={label}>[TIME WHERE I LIVE]</p>
               <p className="mt-3 font-pixel text-[clamp(28px,2.6vw,48px)] leading-none tracking-[0.04em]">
                 <HeroClock /> <span className="text-[0.45em] text-accent">IST</span>
               </p>
