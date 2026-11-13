@@ -47,7 +47,7 @@ export const PROJECTS: Project[] = [
     url: "https://paisa.mohammedyaseenagha.in/",
     mockup: {
       bg: { src: "/images/paisa_bg.webp", width: 1024, height: 572 },
-      screen: { src: "/images/paisa.png", width: 3264, height: 1950, x: 0.285, y: 0.16, w: 0.45 },
+      screen: { src: "/images/paisa.png", width: 3264, height: 1950, x: 0.2, y: 0.1, w: 0.6 },
     },
     featured: true,
   },
