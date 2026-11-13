@@ -7,6 +7,8 @@ import { scrollToTarget, useLenis } from "@/components/providers/SmoothScroll";
 import { cn } from "@/lib/utils";
 
 const EASE = [0.76, 0, 0.24, 1] as const;
+/** Snappy spring used for the panel, close button and hover dot. */
+const SNAP = { type: "spring", stiffness: 520, damping: 44, mass: 0.8 } as const;
 
 /** Which nav section currently holds the middle of the viewport. */
 function currentSection() {
@@ -21,6 +23,7 @@ function currentSection() {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>(NAV[0].href);
+  const [hovered, setHovered] = useState<number | null>(null);
   const lenis = useLenis();
 
   useEffect(() => {
@@ -37,6 +40,7 @@ export default function Header() {
 
   const openMenu = () => {
     setActive(currentSection());
+    setHovered(null);
     setOpen(true);
   };
 
@@ -86,7 +90,7 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, ease: EASE }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
             />
 
             <motion.nav
@@ -94,7 +98,7 @@ export default function Header() {
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ duration: 0.8, ease: EASE }}
+              transition={SNAP}
             >
               <ul className="mt-[max(120px,28vh)] flex flex-col gap-[clamp(20px,2.6vw,52px)] pl-[max(36px,4.6vw)]">
                 {NAV.map((item, i) => (
@@ -109,12 +113,12 @@ export default function Header() {
                       initial={{ y: "110%" }}
                       animate={{ y: 0 }}
                       exit={{ y: "110%" }}
-                      transition={{ duration: 0.7, ease: EASE, delay: open ? 0.25 + i * 0.07 : 0 }}
+                      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay: 0.08 + i * 0.04 }}
                     >
                       <span className="w-[1.4em] font-display text-[clamp(12px,0.85vw,16px)] text-ink">{i + 1}.</span>
                       <span
                         className={cn(
-                          "font-display text-[clamp(36px,2.9vw,60px)] leading-none transition-[color,translate] duration-500 group-hover:translate-x-2 group-hover:text-accent",
+                          "font-display text-[clamp(36px,2.9vw,60px)] leading-none transition-[color,translate] duration-150 ease-out group-hover:translate-x-2 group-hover:text-accent",
                           active === item.href ? "text-accent" : "text-ink",
                         )}
                       >
@@ -126,20 +130,34 @@ export default function Header() {
               </ul>
 
               <motion.ul
+                onPointerLeave={() => setHovered(null)}
+                onBlur={() => setHovered(null)}
                 className="mt-auto mb-[max(40px,7vh)] flex items-center justify-between px-[max(28px,3.6vw)]"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1, transition: { delay: 0.6, duration: 0.6 } }}
+                animate={{ opacity: 1, transition: { delay: 0.2, duration: 0.3 } }}
                 exit={{ opacity: 0, transition: { duration: 0.2 } }}
               >
-                {SOCIALS.map((s) => (
-                  <li key={s.label}>
+                {SOCIALS.map((s, i) => (
+                  <li key={s.label} onPointerEnter={() => setHovered(i)} onFocus={() => setHovered(i)}>
                     <a
                       href={s.href}
                       target={s.href.startsWith("http") ? "_blank" : undefined}
                       rel="noreferrer"
-                      className="group relative flex size-[clamp(60px,3.6vw,76px)] items-center justify-center font-display text-[clamp(11px,0.75vw,14px)] text-ink transition-colors duration-300 hover:text-white"
+                      className={cn(
+                        "relative flex size-[clamp(60px,3.6vw,76px)] items-center justify-center font-display text-[clamp(11px,0.75vw,14px)] transition-colors duration-100",
+                        hovered === i ? "text-white" : "text-ink",
+                      )}
                     >
-                      <span className="absolute inset-0 scale-0 rounded-full bg-accent transition-transform duration-500 ease-[cubic-bezier(.76,0,.24,1)] group-hover:scale-100" />
+                      {/* one dot, shared between links via layoutId, so it glides from link to link */}
+                      {hovered === i && (
+                        <motion.span
+                          layoutId="social-dot"
+                          className="absolute inset-0 rounded-full bg-accent"
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ ...SNAP, stiffness: 650, damping: 38 }}
+                        />
+                      )}
                       <span className="relative">{s.label}</span>
                     </a>
                   </li>
@@ -153,10 +171,10 @@ export default function Header() {
                 onClick={() => setOpen(false)}
                 className="group absolute top-[max(20px,4.6vw)] right-[max(20px,3.6vw)] flex size-[clamp(64px,6.9vw,140px)] items-center justify-center rounded-full bg-accent text-white md:top-[4.4vw] md:right-auto md:left-[calc(-1*clamp(64px,6.9vw,140px)-6.2vw)]"
                 initial={{ scale: 0 }}
-                animate={{ scale: 1, transition: { delay: 0.35, duration: 0.6, ease: [0.34, 1.56, 0.64, 1] } }}
-                exit={{ scale: 0, transition: { duration: 0.3, ease: EASE } }}
+                animate={{ scale: 1, transition: { ...SNAP, stiffness: 700, damping: 28, delay: 0.08 } }}
+                exit={{ scale: 0, transition: { duration: 0.15, ease: EASE } }}
               >
-                <svg viewBox="0 0 24 24" className="size-[34%] transition-transform duration-500 group-hover:rotate-90" fill="none" stroke="currentColor" strokeWidth="1.6">
+                <svg viewBox="0 0 24 24" className="size-[34%] transition-transform duration-200 ease-out group-hover:rotate-90" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <path d="M4 4l16 16M20 4L4 20" />
                 </svg>
               </motion.button>

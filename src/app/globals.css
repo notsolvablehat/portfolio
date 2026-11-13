@@ -34,6 +34,12 @@ body {
   color: var(--ink);
 }
 
+button,
+[role="button"],
+a[href] {
+  cursor: pointer;
+}
+
 ::selection {
   background: var(--accent);
   color: var(--cream);
@@ -92,13 +98,106 @@ html.lenis body {
   }
 }
 
-/* The window: the reveal layer is clipped to a square centred on (--mx, --my). */
-.reveal {
+/* Tall md+ screens (squarer than 13:10): stage fills the hero; y in cqh. */
+@media (min-width: 768px) and (max-aspect-ratio: 13/10) {
+  .stage {
+    inset: 0;
+    left: 0;
+    translate: none;
+    width: auto;
+    height: auto;
+  }
+  .place {
+    left: calc(var(--tx) * 1cqw);
+    top: calc(var(--ty) * 1cqh);
+    width: calc(var(--tw) * 1cqw);
+    font-size: calc(var(--tf) * 1cqw);
+  }
+}
+
+/* Headline line breaks: two lines on phone & tall, one line on desktop. */
+.hero-break,
+.hero-indent {
+  display: block;
+}
+.hero-indent {
+  padding-left: 14cqw;
+}
+.hero-space {
+  display: none;
+}
+@media (min-width: 768px) and (min-aspect-ratio: 1301/1000) {
+  .hero-break,
+  .hero-indent,
+  .hero-space {
+    display: inline;
+  }
+  .hero-indent {
+    padding-left: 0;
+  }
+}
+
+/* Portrait, bottom-anchored */
+.hero-portrait-box {
+  position: absolute;
+  bottom: 0;
+  left: -8cqw;
+  width: 116cqw;
+}
+.hero-portrait-box img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .hero-portrait-box {
+    left: 25.4cqw;
+    width: 45.5cqw;
+  }
+}
+@media (min-width: 768px) and (max-aspect-ratio: 13/10) {
+  .hero-portrait-box {
+    left: 48%;
+    width: auto;
+    height: 84cqh;
+    translate: -50% 0;
+  }
+  .hero-portrait-box img {
+    width: auto;
+    height: 100%;
+  }
+}
+
+/* ───────── Layers ─────────
+   Normal:  yaseen text (0) · crosshair (10) · portrait (20) · child, clipped (30)
+   Swapped: child (0) · crosshair (10) · yaseen text + portrait, clipped (30/31)
+   The clip is a square window of --win centred on (--mx, --my).             */
+.layer-y-text,
+.layer-child {
+  z-index: 0;
+}
+.layer-cross {
+  z-index: 10;
+}
+.layer-y-portrait {
+  z-index: 20;
+}
+.hero:not([data-swapped]) .layer-child,
+.hero[data-swapped] .layer-y-text,
+.hero[data-swapped] .layer-y-portrait {
   clip-path: inset(
     calc(var(--my) - var(--win) / 2) calc(100% - var(--mx) - var(--win) / 2)
       calc(100% - var(--my) - var(--win) / 2) calc(var(--mx) - var(--win) / 2)
   );
 }
+.hero:not([data-swapped]) .layer-child,
+.hero[data-swapped] .layer-y-text {
+  z-index: 30;
+}
+.hero[data-swapped] .layer-y-portrait {
+  z-index: 31;
+}
+
 .dash-v {
   background-image: repeating-linear-gradient(to bottom, var(--ink) 0 3px, transparent 3px 6px);
 }
