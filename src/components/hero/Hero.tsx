@@ -332,7 +332,7 @@ export default function Hero() {
         <div className="stage">
           <div className="hero-portrait hero-portrait-box">
             <Image
-              src="/images/ME_STEVE_JOBS_LIKE_POSE.png"
+              src="/images/ME_STEVE_JOBS_LIKE_POSE (1).png"
               alt=""
               width={654}
               height={783}
